@@ -4,21 +4,88 @@
 // class 
 // class는 파일로 분리해야함.
 
-// first name, last name, nickname, phone number, darkest secret.
 class contact
 {
-    public:
+    private:
         std::string first_name;
-        std::string last_name;
+        std::string last_name; 
         std::string nick_name;
-        std::string phone_name;
+        std::string phone_number;
         std::string darkest_secret;
+
+    public:
+        void set_first_name(std::string str) { first_name = str; }
+        void set_last_name(std::string str) { last_name = str; }
+        void set_nick_name(std::string str) { nick_name = str; }
+        void set_phone_number(std::string str) { phone_number = str; }
+        void set_darkest_secret(std::string str) { darkest_secret = str; }
+        std::string get_first_name() { return first_name; }
+        std::string get_last_name() { return last_name; }
+        std::string get_nick_name() { return nick_name; }
+        std::string get_phone_number() { return phone_number; }
+        std::string get_darkest_secret() { return darkest_secret; }
 };
 
 class phonebook
 {
-    public:
+    contact con;
+
+    private:
         contact cont_list[8];
+
+    public:
+        void add(int idx)
+        {
+            std::string str;
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i == 0)
+                {
+                    std::cout << "Enter your first name: ";
+                    getline(std::cin, str);
+                    cont_list[idx].set_first_name(str);
+                }
+                else if (i == 1)
+                {
+                    std::cout << "Enter your last name: ";
+                    getline(std::cin, str);
+                    cont_list[idx].set_last_name(str);
+                }
+                else if (i == 2)
+                {
+                    std::cout << "Enter your nickname: ";
+                    getline(std::cin, str);
+                    cont_list[idx].set_nick_name(str);
+                }
+                else if (i == 3)
+                {
+                    std::cout << "Enter your phone number: ";
+                    getline(std::cin, str);
+                    cont_list[idx].set_phone_number(str);
+                }
+                else if (i == 4)
+                {
+                    std::cout << "Enter your darkest secret: ";
+                    getline(std::cin, str);
+                    cont_list[idx].set_darkest_secret(str);
+                }
+            }
+        };
+
+        void search(int idx, int flag)
+        {
+            if (flag == 0)
+                idx = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                std::cout << i << " | ";
+                std::cout << cont_list[idx % 8].get_first_name() << " | ";
+                std::cout << cont_list[idx % 8].get_last_name() << " | ";
+                std::cout << cont_list[idx % 8].get_nick_name() << std::endl;
+                idx++;
+            }
+        };
 };
 
 std::string str_to_upper(std::string str)
@@ -30,87 +97,30 @@ std::string str_to_upper(std::string str)
     return (str);
 }
 
-void search_to_phonebook(phonebook book)
-{
-    // only for test
-    // 8개 이하인 경우 배열 전부 출력하지 않게 수정해야함.
-    for (int i = 0; i < 8; i++)
-    {
-        std::cout << book.cont_list[i].first_name << std::endl;
-    }
-}
-
-void add_to_phonebook(phonebook *book, contact cont, int idx)
-{
-    book->cont_list[idx] = cont;
-}
-
-void make_contact(contact *cont)
-{
-    std::string str;
-
-    for (int i = 0; i < 5; i++)
-    {
-        if (i == 0)
-        {
-            std::cout << "Enter your first name: ";
-            getline(std::cin, str);
-            cont->first_name = str;
-        }
-        else if (i == 1)
-        {
-            std::cout << "Enter your last name: ";
-            getline(std::cin, str);
-            cont->last_name = str;
-        }
-        else if (i == 2)
-        {
-            std::cout << "Enter your nickname: ";
-            getline(std::cin, str);
-            cont->nick_name = str;
-        }
-        else if (i == 3)
-        {
-            std::cout << "Enter your phone number: ";
-            getline(std::cin, str);
-            cont->phone_name = str;
-        }
-        else if (i == 4)
-        {
-            std::cout << "Enter your darkest secret: ";
-            getline(std::cin, str);
-            cont->darkest_secret = str;
-        }
-    }
-}
-
 int main()
 {
     phonebook book;
     std::string cmd;
     int idx;
+    int flag;
 
     idx = 0;
+    flag = 0;
     while (1) {
         std::cout << "Enter your command: ";
         getline(std::cin, cmd);
         cmd = str_to_upper(cmd);
         if (idx == 8)
-            idx = 0;
-        if (cmd == "ADD")
         {
-            // while 문 밖에서 제대로 동작 되는지 확인 필요.
-            contact cont;
-
-            make_contact(&cont);
-            add_to_phonebook(&book, cont, idx);
-            idx++;
+            idx = 0;
+            flag = 1;
         }
+        if (cmd == "ADD")
+            book.add(idx++);
         else if (cmd == "SEARCH")
-            search_to_phonebook(book);
+            book.search(idx, flag);
         else if (cmd == "EXIT")
             break ;
     }
-    
     return (0);
 }
