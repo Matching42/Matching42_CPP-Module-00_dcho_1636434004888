@@ -26,6 +26,21 @@ class contact
         std::string get_darkest_secret() { return darkest_secret; }
 };
 
+std::string split_to_str(std::string str)
+{
+    std::string result;
+    
+    if (str.length() <= 10)
+        return (str);
+    else
+    {
+        for (int i = 0; i < 10; i++)
+            result += str[i];
+        result += ".";
+        return (result);
+    }
+}
+
 class phonebook
 {
     contact con;
@@ -75,14 +90,20 @@ class phonebook
 
         void search(int idx, int flag)
         {
+            int len;
+
+            len = 8;
             if (flag == 0)
+            {
+                len = idx;
                 idx = 0;
-            for (int i = 0; i < 8; i++)
+            }
+            for (int i = 0; i < len; i++)
             {
                 std::cout << i << " | ";
-                std::cout << cont_list[idx % 8].get_first_name() << " | ";
-                std::cout << cont_list[idx % 8].get_last_name() << " | ";
-                std::cout << cont_list[idx % 8].get_nick_name() << std::endl;
+                std::cout << split_to_str(cont_list[idx % 8].get_first_name()) << " | ";
+                std::cout << split_to_str(cont_list[idx % 8].get_last_name()) << " | ";
+                std::cout << split_to_str(cont_list[idx % 8].get_nick_name()) << std::endl;
                 idx++;
             }
         };
