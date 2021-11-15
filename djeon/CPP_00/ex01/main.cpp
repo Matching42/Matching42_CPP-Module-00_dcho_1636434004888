@@ -20,8 +20,7 @@ int main()
     flag = 0;
     while (1) {
         std::cout << "Enter your command: ";
-        getline(std::cin, cmd);
-        cmd = str_to_upper(cmd);
+        cmd = str_to_upper(get_line_cpp());
         if (idx == 8)
         {
             idx = 0;

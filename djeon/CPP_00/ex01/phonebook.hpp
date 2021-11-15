@@ -4,6 +4,8 @@
 #include "contact.hpp"
 #include <iostream>
 
+std::string get_line_cpp(void);
+
 class phonebook
 {
     contact con;

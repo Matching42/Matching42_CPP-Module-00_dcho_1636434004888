@@ -5,60 +5,54 @@ std::string split_to_str(std::string str)
     std::string result;
     
     if (str.length() <= 10)
+    {
+        for (int i = 0; i < 10 - str.length(); i++)
+            std::cout << " ";
         return (str);
+    }
     else
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 9; i++)
             result += str[i];
         result += ".";
         return (result);
     }
 }
 
-void phonebook::add(int idx)
+std::string get_line_cpp(void)
 {
     std::string str;
 
-    for (int i = 0; i < 5; i++)
+    getline(std::cin, str);
+    if (std::cin.eof() == true)
     {
-        if (i == 0)
-        {
-            std::cout << "Enter your first name: ";
-            getline(std::cin, str);
-            cont_list[idx].set_first_name(str);
-        }
-        else if (i == 1)
-        {
-            std::cout << "Enter your last name: ";
-            getline(std::cin, str);
-            cont_list[idx].set_last_name(str);
-        }
-        else if (i == 2)
-        {
-            std::cout << "Enter your nickname: ";
-            getline(std::cin, str);
-            cont_list[idx].set_nick_name(str);
-        }
-        else if (i == 3)
-        {
-            std::cout << "Enter your phone number: ";
-            getline(std::cin, str);
-            cont_list[idx].set_phone_number(str);
-        }
-        else if (i == 4)
-        {
-            std::cout << "Enter your darkest secret: ";
-            getline(std::cin, str);
-            cont_list[idx].set_darkest_secret(str);
-        }
+        std::cout << std::endl;
+        exit (0);
     }
+    return (str);
+}
+
+void phonebook::add(int idx)
+{    
+    std::cout << "Enter your first name: ";
+    cont_list[idx].set_first_name(get_line_cpp());
+    std::cout << "Enter your last name: ";
+    cont_list[idx].set_last_name(get_line_cpp());
+    std::cout << "Enter your nickname: ";
+    cont_list[idx].set_nick_name(get_line_cpp());
+    std::cout << "Enter your phone number: ";
+    cont_list[idx].set_phone_number(get_line_cpp());
+    std::cout << "Enter your darkest secret: ";
+    cont_list[idx].set_darkest_secret(get_line_cpp());
 }
 
 void phonebook::search(int idx, int flag)
 {
     int len;
+    int tmp_idx;
 
     len = 8;
+    tmp_idx = idx;
     if (flag == 0)
     {
         len = idx;
@@ -66,10 +60,36 @@ void phonebook::search(int idx, int flag)
     }
     for (int i = 0; i < len; i++)
     {
-        std::cout << i << " | ";
-        std::cout << split_to_str(cont_list[idx % 8].get_first_name()) << " | ";
-        std::cout << split_to_str(cont_list[idx % 8].get_last_name()) << " | ";
+        std::cout << "         " << i << "|";
+        std::cout << split_to_str(cont_list[idx % 8].get_first_name()) << "|";
+        std::cout << split_to_str(cont_list[idx % 8].get_last_name()) << "|";
         std::cout << split_to_str(cont_list[idx % 8].get_nick_name()) << std::endl;
         idx++;
+    }
+    while (42)
+    {
+        std::string i;
+        int target_idx = tmp_idx;
+        
+        std::cout << "Enter Index name: ";
+        i = get_line_cpp();
+        if (i == "exit" || i == "EXIT")
+            break ;
+        else if (i.length() >= 2 || i[0] - '0' >= 8)
+            std::cout << "invalid index number" << std::endl;
+        else
+        {
+            target_idx += i[0] - '0';
+            std::cout << "First name: ";
+            std::cout << cont_list[target_idx % 8].get_first_name() << std::endl;
+            std::cout << "Last name: ";
+            std::cout << cont_list[target_idx % 8].get_last_name() << std::endl;
+            std::cout << "Nickname: ";
+            std::cout << cont_list[target_idx % 8].get_nick_name() << std::endl;
+            std::cout << "Phone number: ";
+            std::cout << cont_list[target_idx % 8].get_phone_number() << std::endl;
+            std::cout << "Darkest secret: ";
+            std::cout << cont_list[target_idx % 8].get_darkest_secret() << std::endl;
+        }
     }
 }
