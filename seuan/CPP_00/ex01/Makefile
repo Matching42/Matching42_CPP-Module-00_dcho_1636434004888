@@ -1,6 +1,9 @@
 TARGET			= phonebook
 
-SRCS			= main.cpp
+SRCS			= main.cpp \
+					contact.cpp \
+					phonebook.cpp
+					
 OBJS			= $(SRCS:.cpp=.o)
 
 CLA				= clang++
