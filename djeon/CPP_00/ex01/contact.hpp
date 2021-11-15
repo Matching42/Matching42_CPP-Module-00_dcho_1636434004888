@@ -2,6 +2,7 @@
 # define CONTACT_HPP
 
 #include <string>
+#include <iostream>
 
 class contact
 {
@@ -23,6 +24,10 @@ class contact
         std::string get_nick_name();
         std::string get_phone_number();
         std::string get_darkest_secret();
+
+        contact(void);
+        ~contact(void);
+
 };
 
 #endif

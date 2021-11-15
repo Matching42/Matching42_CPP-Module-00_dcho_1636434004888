@@ -32,6 +32,16 @@ std::string get_line_cpp(void)
     return (str);
 }
 
+phonebook::phonebook(void)
+{
+    std::cout << "Created phonebook successfully" << std::endl;
+}
+
+phonebook::~phonebook(void)
+{
+    std::cout << "Goodbye my phonebook" << std::endl;
+}
+
 void phonebook::add(int idx)
 {    
     std::cout << "Enter your first name: ";
@@ -52,12 +62,12 @@ void phonebook::search(int idx, int flag)
     int tmp_idx;
 
     len = 8;
-    tmp_idx = idx;
     if (flag == 0)
     {
         len = idx;
         idx = 0;
     }
+    tmp_idx = idx;
     for (int i = 0; i < len; i++)
     {
         std::cout << "         " << i << "|";
@@ -75,7 +85,9 @@ void phonebook::search(int idx, int flag)
         i = get_line_cpp();
         if (i == "exit" || i == "EXIT")
             break ;
-        else if (i.length() >= 2 || i[0] - '0' >= 8)
+        else if (i == "")
+            std::cout << "Plz enter the number" << std::endl;
+        else if (i.length() >= 2 || i[0] - '0' >= len)
             std::cout << "invalid index number" << std::endl;
         else
         {

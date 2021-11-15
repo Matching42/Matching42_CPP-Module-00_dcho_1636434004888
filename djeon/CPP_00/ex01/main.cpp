@@ -11,7 +11,7 @@ std::string str_to_upper(std::string str)
 
 int main()
 {
-    phonebook book;
+    phonebook book = phonebook();
     std::string cmd;
     int idx;
     int flag;
