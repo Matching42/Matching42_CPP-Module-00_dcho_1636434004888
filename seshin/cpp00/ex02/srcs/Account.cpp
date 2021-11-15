@@ -8,7 +8,6 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-//생성자
 Account::Account( int initial_deposit )
 {
     _accountIndex = _nbAccounts;
@@ -25,7 +24,6 @@ Account::Account(void)
 {
 }
 
-//소멸자
 Account::~Account(void)
 {
     _displayTimestamp();
@@ -74,7 +72,6 @@ void	Account::_displayTimestamp(void)
 				<< std::setfill('0') << std::setw(2) << t->tm_sec << "]";
 }
 
-//전체 계좌관련 print(static과 관련된 변수)
 void  Account::displayAccountsInfos(void)
 {
     _displayTimestamp();
@@ -82,7 +79,6 @@ void  Account::displayAccountsInfos(void)
     ";deposit" << _totalNbDeposits << ";withdrals:" << _totalNbWithdrawals << std::endl;
 }
 
-//계좌 각각 print(객체가 각각 가지고 있는 변수)
 void Account::displayStatus(void) const
 {
     _displayTimestamp();
@@ -90,7 +86,6 @@ void Account::displayStatus(void) const
     ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-//예금하는 메소드
 void	Account::makeDeposit(int deposit)
 {
     int p_amount;
@@ -104,7 +99,6 @@ void	Account::makeDeposit(int deposit)
     ";deposit" << deposit << ";amount:" << _amount << ";nb_deposit:" << _nbDeposits << std::endl;
 }
 
-//출금 메소드
 bool	Account::makeWithdrawal(int withdrawal)
 {
     int p_amount;
