@@ -6,14 +6,13 @@
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 11:26:05 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/15 11:32:08 by seoyoung         ###   ########.fr       */
+/*   Updated: 2021/11/15 13:43:11 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACTS_HPP
 #define CONTACTS_HPP
 #include <iostream>
-
 
 class Contacts
 {
@@ -34,6 +33,8 @@ class Contacts
 		std::string getnName(void);
 		std::string getpNumber(void);
 		std::string getdSecret(void);
+		Contacts(void){};
+		~Contacts(){};
 };
 
 #endif

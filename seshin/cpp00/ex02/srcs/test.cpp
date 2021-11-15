@@ -12,6 +12,7 @@
 #include <functional>
 #include "Account.hpp"
 #include <iostream>
+
 int		main( void ) {
 
 	//accout 객체를 여러개 담을 수 있는 컨테이너->같은 타임의 데이터를 모든 객체(동적할당)
@@ -21,7 +22,7 @@ int		main( void ) {
 	//iterator형 변수 2개->pair컨테이너
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
-	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+	int	const				amounts[] = { 42, 54, 957, 432, 1234, 0, 754, 16576 };
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
 	//amount ~ amount + amount_size 범위로 객체 생성 & 복사(range constructor)->생성자 호출(created)
 	accounts_t				accounts( amounts, amounts + amounts_size );
