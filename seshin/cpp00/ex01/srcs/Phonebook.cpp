@@ -12,6 +12,8 @@ std::string PhoneBook::my_cin()
 
 void PhoneBook::add(int i)
 {
+	if (size < 8)
+		size++;
 	std::cout << "Enter the First Name: ";
 	contact[i].setfName(my_cin());
 	std::cout << "Enter the Last Name: ";
@@ -35,49 +37,41 @@ static std::string ft_dot(std::string str)
 	return res;
 }
 
-void PhoneBook::search(void)
+void PhoneBook::search()
 {
 	std::string input;
 	int index = 0;
 
-	if (contact[0].getfName() == "")
+	if (size == 0)
 	{
 		std::cout << "There's no Contact to Search..😵‍💫" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < size; i++)
 	{
-		if (contact[i].getfName() != "")
-		{
-			std::cout << "|" << std::setw(10) << i + 1 << "|"
-			<< std::setw(10) << ft_dot(contact[i].getfName()) << "|"
-			<< std::setw(10) << ft_dot(contact[i].getlName()) << "|"
-			<< std::setw(10) << ft_dot(contact[i].getnName()) << "|"
-			<< std::endl;
-		}
+		std::cout << "|" << std::setw(10) << i + 1 << "|"
+		<< std::setw(10) << ft_dot(contact[i].getfName()) << "|"
+		<< std::setw(10) << ft_dot(contact[i].getlName()) << "|"
+		<< std::setw(10) << ft_dot(contact[i].getnName()) << "|"
+		<< std::endl;
 	}
 	while (true)
 	{
 		std::cout << "Please Enter the Index :";
 		input = my_cin();
-		if (input < "0" || input > "7")
+		std::stringstream ssInt(input);
+		ssInt >> index;
+		if (index < 1 || index > size)
 		{
 			std::cout << "Cannot find..😵‍💫" << std::endl;
 			continue;
 		}
-		if (contact[index].getfName() != "")
-		{
-			std::stringstream ssInt(input);
-			ssInt >> index;
-			std::cout << "No. " << index-- << std::endl;
-			std::cout << "1. First Name :"<< contact[index].getfName() << std::endl;
-			std::cout << "2. Last Name :"<< contact[index].getlName() << std::endl;
-			std::cout << "3. NickName :"<< contact[index].getnName() << std::endl;
-			std::cout << "4. PhoneNumber :"<< contact[index].getpNumber() << std::endl;
-			std::cout << "5. Darkest Secret :"<< contact[index].getdSecret() << std::endl;
-			break;
-		}
-		else
-			std::cout << "Can not find Index..😵‍💫" << std::endl;
+		std::cout << "No. " << index-- << std::endl;
+		std::cout << "1. First Name :"<< contact[index].getfName() << std::endl;
+		std::cout << "2. Last Name :"<< contact[index].getlName() << std::endl;
+		std::cout << "3. NickName :"<< contact[index].getnName() << std::endl;
+		std::cout << "4. PhoneNumber :"<< contact[index].getpNumber() << std::endl;
+		std::cout << "5. Darkest Secret :"<< contact[index].getdSecret() << std::endl;
+		break;
 	}
 }

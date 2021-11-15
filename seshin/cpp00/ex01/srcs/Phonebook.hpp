@@ -9,8 +9,10 @@ class PhoneBook
 {
 	private:
 		Contacts contact[8];
+		int size;
 	public:
 		PhoneBook(){
+			size = 0;
 			std::cout << "Hello Phonebook!!" << std::endl;
 		}
 		void add(int i);
