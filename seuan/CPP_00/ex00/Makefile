@@ -6,7 +6,7 @@
 #    By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 18:11:40 by seuan             #+#    #+#              #
-#    Updated: 2021/11/09 16:16:15 by seuan            ###   ########.fr        #
+#    Updated: 2021/11/16 14:02:00 by seuan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CLA				= clang++
 RM				= rm -f
-CLAFLAGS		= -Wall -Wextra -Werror
+CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 
 all:			$(TARGET)
