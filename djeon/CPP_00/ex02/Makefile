@@ -1,7 +1,8 @@
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
-NAME = megaphone
-SRC = megaphone.cpp
+NAME = account
+HEADER = Account.hpp
+SRC = test.cpp Account.cpp
 OBJECTS = $(SRC:.cpp=.o)
 
 all : $(NAME)
