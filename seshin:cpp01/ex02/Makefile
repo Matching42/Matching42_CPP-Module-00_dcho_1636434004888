@@ -6,7 +6,7 @@
 #    By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 10:18:33 by seoyoung          #+#    #+#              #
-#    Updated: 2021/11/17 10:35:10 by seoyoung         ###   ########.fr        #
+#    Updated: 2021/11/17 10:37:31 by seoyoung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME) : $(OBJ)
 .PHONY : all clean fclean re
 
 clean:
-		$(RM)
+		$(RM) $(OBJ)
 
 fclean: clean
 		$(RM) $(NAME)
