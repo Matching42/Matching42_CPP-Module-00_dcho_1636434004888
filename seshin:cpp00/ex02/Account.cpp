@@ -6,7 +6,7 @@
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 18:07:42 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/16 18:08:43 by seoyoung         ###   ########.fr       */
+/*   Updated: 2021/11/17 16:25:23 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,27 @@ Account::~Account(void)
 //static 멤버함수도 static 멤버변수처럼 외부 정의 땐 static 떼기
 int Account::getNbAccounts(void)
 {
-    return(Account::_nbAccounts);
+    return _nbAccounts;
 }
 
 int  Account::getTotalAmount(void)
 {
-    return(Account::_totalAmount);
+    return _totalAmount;
 }
 
 int  Account::getNbDeposits(void)
 {
-    return(Account::_totalNbDeposits);
+    return _totalNbDeposits;
 }
 
 int  Account::getNbWithdrawals(void)
 {
-    return(Account::_totalNbWithdrawals);
+    return _totalNbWithdrawals;
 }
 
 int			Account::checkAmount(void) const
 {
-	return (_amount);
+	return _amount;
 }
 
 //time_stamp출력
@@ -75,7 +75,7 @@ void	Account::_displayTimestamp(void)
 
     timer = time(NULL);
     struct tm* t = localtime(&timer);
-    std::cout << "[" << t->tm_year + 1900 
+    std::cout << "[" << t->tm_year + 1900
                 << std::setfill('0') << std::setw(2) << t->tm_mon
                 << std::setfill('0') << std::setw(2) << t->tm_mday 
                 << "_" 

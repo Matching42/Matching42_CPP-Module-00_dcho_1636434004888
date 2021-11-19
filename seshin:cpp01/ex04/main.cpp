@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 10:51:45 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/18 23:30:29 by seoyoung         ###   ########.fr       */
+/*   Created: 2021/11/18 20:43:38 by seoyoung          #+#    #+#             */
+/*   Updated: 2021/11/19 11:12:26 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "Replace.hpp"
 
-HumanB::HumanB(std::string name_)
-: name(name_) {};
-
-
-void HumanB::setWeapon(Weapon& weapon_)
+int main(int argc, char **argv)
 {
-    weapon = &weapon_;
-}
-
-void HumanB::attack() 
-{
-    std::cout << name 
-                << " attacks with his "
-                << weapon->getType() << std::endl;
-}
-
-HumanB::~HumanB()
-{
+    Input input(argc, argv);
+    if (input.errorCheck())
+        return -1;
+    Replace replace(input);
+    if (!replace.readFile() || !replace.makeFile())
+        return -1;
+    replace.replaceString();
+    replace.fileClose();
 }
