@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = megaphone
 SRC = megaphone.cpp
 OBJECTS = $(SRC:.cpp=.o)

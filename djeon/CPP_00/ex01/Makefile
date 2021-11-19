@@ -8,7 +8,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CLA				= clang++
 RM				= rm -f
-CLAFLAGS		= -Wall -Wextra -Werror
+CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 
 all:			$(TARGET)
