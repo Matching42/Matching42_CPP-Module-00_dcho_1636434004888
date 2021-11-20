@@ -2,7 +2,7 @@
 
 int main()
 {
-    std::string name = "Zombieeeee";
+    std::string name = "Zombie_";
     int N = 5;
     Zombie *pArray;
     

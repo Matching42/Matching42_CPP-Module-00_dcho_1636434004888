@@ -6,7 +6,7 @@
 /*   By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:17:56 by seuan             #+#    #+#             */
-/*   Updated: 2021/11/18 14:18:16 by seuan            ###   ########.fr       */
+/*   Updated: 2021/11/19 19:56:34 by seuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Zombie
         std::string get_name(void);
         void set_name(std::string str);
         void announce(void);
-        Zombie(void);
+        Zombie(std::string str);
         ~Zombie(void);
 };
 
