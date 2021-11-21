@@ -6,9 +6,7 @@ RM = rm -rf
 
 NAME = program
 
-SRC =	main.cpp\
-		Zombie.cpp\
-		ZombieHorde.cpp
+SRC =	main.cpp
 
 SRC_DIR = ./srcs/
 SRCS = $(addprefix $(SRC_DIR),$(SRC))

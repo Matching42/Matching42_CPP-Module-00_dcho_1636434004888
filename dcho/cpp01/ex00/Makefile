@@ -1,22 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: dcho <dcho@student.42seoul.kr>             +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/19 13:41:02 by dcho              #+#    #+#              #
-#    Updated: 2021/11/20 20:56:08 by dcho             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror
 CDEBUG = -fsanitize=address -g -std=c++98
 
 RM = rm -rf
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = program
 
 SRC =	main.cpp\
 		Zombie.cpp\

@@ -4,11 +4,9 @@ CDEBUG = -fsanitize=address -g -std=c++98
 
 RM = rm -rf
 
-NAME = program
+NAME = replace
 
-SRC =	main.cpp\
-		Zombie.cpp\
-		ZombieHorde.cpp
+SRC =	main.cpp
 
 SRC_DIR = ./srcs/
 SRCS = $(addprefix $(SRC_DIR),$(SRC))
@@ -32,6 +30,7 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
+		$(RM) *.replace
 
 re : fclean all
 
