@@ -25,13 +25,17 @@ void	replace(std::string& fn, const std::string& s1, const std::string& s2)
 {
 	std::string		fc = fileInput(fn);
 	std::ofstream	fout(fn.erase(fn.find(".txt"), fn.size() ) + ".replace");
-	int spot;
+	int spot = 0;
 
-	while (fc.find(s1) != std::string::npos)
+	std::cout << s1.size() << " : " << s1.length() << std::endl;
+	std::cout << s2.size() << " : " << s2.length() << std::endl;
+	while (fc.find(s1, spot) != std::string::npos)
 	{
-		spot = fc.find(s1);
+
+		spot = fc.find(s1, spot);
 		fc.erase(spot, s1.size());
 		fc.insert(spot, s2);
+		spot += s2.size();
 	}
 	if (fout.is_open())
 		fout << fc << std::endl;
