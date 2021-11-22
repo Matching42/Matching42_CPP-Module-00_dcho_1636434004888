@@ -4,19 +4,16 @@
 
 int main()
 {
+    // Create Weapon class
     Weapon sword = Weapon("the world best sword");
 
-    // only test for Weapon class
-    std::cout << sword.getType() << std::endl;
-    std::cout << &sword.getType() << std::endl;
-
-    // only test for HumanA class
+    // HumanA
     HumanA bob("bob", sword);
     bob.attack();
-    sword.setType("some other type of club");
+    sword.setType("some other type of sword");
     bob.attack();
 
-    // only test for HumanB class
+    // HumanB
     Weapon club = Weapon("crude spiked club");
     HumanB jim("Jim");
     jim.setWeapon(club);

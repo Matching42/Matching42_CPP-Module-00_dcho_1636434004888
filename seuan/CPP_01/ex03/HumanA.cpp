@@ -3,7 +3,7 @@
 // REF 초기화
 HumanA::HumanA( std::string str, Weapon& wp) : name(str), wp(wp) {};
 
-HumanA::~HumanA()
+HumanA::~HumanA(void)
 {
     ;
 }

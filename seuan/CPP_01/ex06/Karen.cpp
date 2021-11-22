@@ -64,9 +64,6 @@ void Karen::complain(std::string level)
     }
     switch (lv_val)
     {
-        case -1:
-            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-            break ;
         case 0:
             (this->*ptr[0])();
         case 1:
@@ -75,6 +72,10 @@ void Karen::complain(std::string level)
             (this->*ptr[2])();
         case 3:
             (this->*ptr[3])();
+            break ;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break ;
     }
 }
 

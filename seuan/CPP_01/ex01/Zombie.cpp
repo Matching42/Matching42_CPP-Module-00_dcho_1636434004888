@@ -6,7 +6,7 @@
 /*   By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:17:39 by seuan             #+#    #+#             */
-/*   Updated: 2021/11/19 20:09:07 by seuan            ###   ########.fr       */
+/*   Updated: 2021/11/22 16:38:12 by seuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Zombie::Zombie(void)
 {
-    std::cout << "❗️❗️❗️ Zombie was created ❗️❗️❗️" << std::endl;
+    std::cout << "Zombie Constructor called" << std::endl;
 }
 
 Zombie::~Zombie(void)
 {
-    std::cout << Zombie::get_name() << " is gone to Blackhole 😇😇😇" << std::endl;
+    std::cout << Zombie::get_name() << " is gone to Blackhole 😇" << std::endl;
 }
 
 std::string Zombie::get_name(void)
