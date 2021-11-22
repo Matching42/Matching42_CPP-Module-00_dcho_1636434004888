@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 15:51:05 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/16 18:20:24 by seoyoung         ###   ########.fr       */
+/*   Created: 2021/11/20 12:20:14 by seoyoung          #+#    #+#             */
+/*   Updated: 2021/11/20 12:23:58 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef KAREN_HPP
+#define KAREN_HPP
 
-int main(void)
+#include <iostream>
+class Karen
 {
-    Zombie zombie1("zombie1");
-    zombie1.announce();
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+        void (Karen::*_f[4])(void);
+    public:
+        void complain (std::string level);
+        Karen();
+        ~Karen();
+};
 
-    randomChump("zombie2");
-
-    Zombie *zombie3 = newZombie("zombie3");
-    delete zombie3;
-    
-    return (0);
-}
+#endif

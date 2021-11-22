@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 15:50:56 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/16 18:18:14 by seoyoung         ###   ########.fr       */
+/*   Created: 2021/11/17 10:46:54 by seoyoung          #+#    #+#             */
+/*   Updated: 2021/11/21 22:07:09 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-Zombie* newZombie(std::string name)
+#include "Weapon.hpp"
+
+class HumanA
 {
-    Zombie *zombie = new Zombie(name);
-    zombie->announce();
-    return (zombie);
-}
+    private :
+        std::string name;
+        Weapon& weapon;
+    public:
+        HumanA(std::string name_, Weapon& weapon_);
+        ~HumanA();
+        void attack() const;
+};
+
+#endif

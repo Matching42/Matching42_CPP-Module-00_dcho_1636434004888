@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seoyoung <seoyoung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 18:32:06 by seoyoung          #+#    #+#             */
-/*   Updated: 2021/11/16 19:17:48 by seoyoung         ###   ########.fr       */
+/*   Created: 2021/11/17 10:51:45 by seoyoung          #+#    #+#             */
+/*   Updated: 2021/11/21 22:21:14 by seoyoung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie* zombieHorde( int N, std::string name )
+HumanB::HumanB(std::string name_)
+: name(name_) {};
+
+
+void HumanB::setWeapon(Weapon& weapon_)
 {
-    Zombie *zombie = new Zombie[5];
-    std::stringstream sstream;
-    std::string temp;
+    weapon = &weapon_;
+}
 
-    for(int i = 0; i < N; i++)
-    {
-        sstream << i;
-        zombie[i].setName(name + sstream.str());
-        sstream.str(std::string());
-        
-    }
-    return (zombie);
+void HumanB::attack() const
+{
+    std::cout << name 
+                << " attacks with his "
+                << weapon->getType() << std::endl;
+}
+
+HumanB::~HumanB()
+{
 }
