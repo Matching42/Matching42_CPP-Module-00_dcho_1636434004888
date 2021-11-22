@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
 
-// std::string my_cin()
-// {
-// 	std::string input;
+ std::string my_cin()
+ {
+ 	std::string input;
 
-// 	std::getline(std::cin, input);
-// 	if (std::cin.eof() == true)
-// 		exit(1);
-// 	return (input);
-// }
+ 	std::getline(std::cin, input);
+ 	if (std::cin.eof() == true)
+ 		exit(1);
+ 	return (input);
+ }
 
 int main(void)
 {
@@ -18,14 +18,9 @@ int main(void)
 	std::string	name;
 
 	std::cout << "Input Number: ";
-	std::cin >> n;
-	if (std::cin.eof() == true)
-		exit(1);
+	n = std::stoi(my_cin());
 	std::cout << "Input Global Name: ";
-	std::cin >> name;
-	if (std::cin.eof() == true)
-		exit(1);
-
+	name = my_cin();
 	z = zombieHorde(n, name);
 	for (int i = 0; i < n; i++)
 		z[i].announce();

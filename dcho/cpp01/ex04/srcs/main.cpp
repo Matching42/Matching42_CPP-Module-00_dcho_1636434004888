@@ -1,15 +1,48 @@
 #include <iostream>
 #include <fstream>
 
-void	replace(const std::string& fn, const std::string& s1, const std::string& s2)
+std::string fileInput(std::string& fn)
 {
-	std::ifstream fin(fn);
-	if (!fin)
+	std::ifstream	fin(fn);
+	std::string		fc;
+
+	if (!fin.is_open())
 	{
 		std::cerr << "Can not find file!" << std::endl;
 		exit(100);
 	}
-	if (s1.length() || s2.length() || fn.length())
+
+	//while (fin)
+	//{
+	//	std::getline(fin, fc);
+	//	std::cout << fc << std::endl;
+	//}
+
+	fin.seekg(0, std::ios::end);
+	int size = fin.tellg();
+	fc.resize(size);
+	fin.seekg(0, std::ios::beg);
+	fin.read(&fc[0], size);
+	//std::cout << fc << std::endl;
+	return (fc);
+}
+
+void	replace(std::string& fn, const std::string& s1, const std::string& s2)
+{
+	std::string		fc = fileInput(fn);
+	std::ofstream	fout(fn.erase(fn.find(".txt"), fn.size() ) + ".replace");
+	int spot;
+
+	while (fc.find(s1) != std::string::npos)
+	{
+		spot = fc.find(s1);
+		fc.erase(spot, s1.size());
+		fc.insert(spot, s2);
+	}
+	//fc = fc.erase(fc.find(s1), fc.size()) + s2;
+	if (fout.is_open())
+		fout << fc << std::endl;
+	if (s1.length() || s2.length())
 		std::cout << s1 << std::endl;
 }
 
