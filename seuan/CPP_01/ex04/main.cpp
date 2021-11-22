@@ -1,80 +1,61 @@
 #include <iostream>
 #include <fstream>
 
-int is_same_str(std::string str, std::string s1, int i)
+std::string replace_f_name(char *f_name)
 {
-    std::string tmp;
-    int len = s1.length();
+    std::string rtn = f_name;
 
-    while (len--)
-        tmp += str[i++];
-    for (int j = 0; j < tmp.length(); j++)
-    {
-        if (tmp[j] != s1[j])
-            return (0); 
-    }
-    return (1);
+    int f_idx =  rtn.find(".txt");
+
+    rtn.erase(f_idx);
+    rtn.insert(f_idx, ".replace");
+    return (rtn);
 }
 
-std::string replace_str(std::string str, std::string s1, std::string s2)
+void replace_contents(std::string *contents, std::string s1, std::string s2)
 {
-    std::string rtn;
-    std::string tmp;
-    int i = 0;
+    int idx = 0;
 
-    while (str[i])
+    while (contents->find(s1, idx) != std::string::npos)
     {
-        if (str[i] == s1[0])
-        {
-            if (is_same_str(str, s1, i))
-            {
-                rtn += s2;
-                for (int j = 0; j < s1.length(); j++)
-                    i++;
-            }
-            else
-                rtn += str[i++];
-        }
-        else
-            rtn += str[i++];
+        idx = contents->find(s1, idx);
+        contents->erase(idx, s1.length());
+        contents->insert(idx, s2);
+        idx += s2.length();
     }
-    return (rtn);
 }
 
 int main (int ac, char **av) 
 {
-    if (ac == 3)
+    if (ac == 4)
     {
-        std::string s1 = av[1];
-        std::string s2 = av[2];
-        
+        std::string s1(av[2]);
+        std::string s2(av[3]);
+        std::ifstream infile(av[1]);
+        std::ofstream outfile(replace_f_name(av[1]));
+        std::string contents;
+
         if (!s1.length() || !s2.length())
             return (0);
-        std::cout << "Strings input succeed." << std::endl;
-
-        std::string line;
-        std::string replace;
-        std::ifstream infile ("example.txt");
-        std::ofstream outfile("example.replace");
-
-        if (infile.is_open() || outfile.is_open())
+        if (infile.is_open() && outfile.is_open())
         {
-            while ( std::getline(infile,line) )
-            {
-                replace = replace_str(line, s1, s2);
-                outfile << replace << std::endl;
-            }
-            infile.close();
-            outfile.close();
-            std::cout << "Replace suceed." << std::endl;
+            infile.seekg(0, std::ios::end);
+            int size = infile.tellg();
+            contents.resize(size);
+            infile.seekg(0, std::ios::beg);
+            infile.read(&contents[0], size);
+
+            replace_contents(&contents, s1, s2);
+            outfile << contents;
+            std::cout << "Replace succeed." << std::endl;
         }
         else 
-            std::cout << "Unable to open file"; 
+            std::cout << "Unable to open file." << std::endl; 
     }
     else
     {
         std::cout << "Replace failed." << std::endl;
-        std::cout << "Usage: ./replace s1 s2" << std::endl;
+        std::cout << "Usage: ./replace FINENAME s1 s2" << std::endl;
         return (0);
     }
     return (0);

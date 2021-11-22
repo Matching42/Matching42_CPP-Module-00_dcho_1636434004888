@@ -1,31 +1,8 @@
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is a line.
-This is another line.
-abc is happy habcl hhhabcKKK kkkabc lllllllalblcl abcabcabc
+42 is a private, nonprofit and tuition-free computer programming school created and funded by French billionaire Xavier Niel (founder of the telecommunication company Iliad) with several partners including Nicolas Sadirac (previous director-general of the Epitech school in France),[1] Kwame Yamgnane and Florian Bucher (former executives of Epitech).
+[2] The school was first opened in Paris in 2013.
+Out of more than 80,000 candidates in France, 3,000[3] were selected to complete a four-week intensive computer programming bootcamp called piscine (swimming-pool). Any person older than 18[4] can register for the piscine after completing the logical reasoning tests on the website.
+The school does not have any professors, and is open 24/7. The training is inspired peer-to-peer, pedagogy, and project-based learning.
+The school is a non-profit organization and is entirely free, being funded by billionaire Xavier Niel with hundreds of millions of dollars. All the intellectual property belongs to the students.
+42 Silicon Valley is the US campus of 42 chartered as a public-benefit nonprofit corporation in the State of California and has been created and funded by the same team from France, in addition to a new partner, the chief operating officer of the US school and former 42 Paris student Brittany Bir.[5] 42 Silicon Valley opened in summer 2016 in Fremont, California in the San Francisco Bay Area.
+42's name is a reference to the science fiction book The Hitchhiker's Guide to the Galaxy written by British author Douglas Adams: in the book 42 is the Answer to the Ultimate Question of Life, the Universe, and Everything.
+In addition to the two official campuses in Paris, France, and Fremont, California, the school model was adopted in Lyon, Reims, and Mulhouse, France, as well as in Romania, South Africa, Ukraine, Bulgaria, Moldova,[6] Belgium, Russia, Morocco, the Netherlands, Indonesia, Finland,[7] Germany,[8] the United Arab Emirates[9] and Quebec, Canada[10] with the help and support of 42.
