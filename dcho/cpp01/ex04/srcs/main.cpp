@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 
 std::string fileInput(std::string& fn)
@@ -12,18 +13,11 @@ std::string fileInput(std::string& fn)
 		exit(100);
 	}
 
-	//while (fin)
-	//{
-	//	std::getline(fin, fc);
-	//	std::cout << fc << std::endl;
-	//}
-
 	fin.seekg(0, std::ios::end);
 	int size = fin.tellg();
 	fc.resize(size);
 	fin.seekg(0, std::ios::beg);
 	fin.read(&fc[0], size);
-	//std::cout << fc << std::endl;
 	return (fc);
 }
 
@@ -39,20 +33,17 @@ void	replace(std::string& fn, const std::string& s1, const std::string& s2)
 		fc.erase(spot, s1.size());
 		fc.insert(spot, s2);
 	}
-	//fc = fc.erase(fc.find(s1), fc.size()) + s2;
 	if (fout.is_open())
 		fout << fc << std::endl;
-	if (s1.length() || s2.length())
-		std::cout << s1 << std::endl;
 }
 
 int		main(int argc, char **argv)
 {
 	if (argc == 4)
 	{
-		std::string fn = argv[1];
-		std::string s1 = argv[2];
-		std::string s2 = argv[3];
+		std::string fn(argv[1]);
+		std::string s1(argv[2]);
+		std::string s2(argv[3]);
 		if (s1.length() != 0 && s2.length() != 0)
 			replace(fn, s1, s2);
 		else

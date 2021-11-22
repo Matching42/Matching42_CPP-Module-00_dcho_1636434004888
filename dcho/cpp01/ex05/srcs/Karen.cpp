@@ -20,35 +20,35 @@ std::string str_toupper(std::string str)
 void Karen::complain(std::string level)
 {
 	std::string arrLevel[4] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	//int index;
+	int index;
 	level = str_toupper(level);
 	void (Karen::*ptr[])(void) =
     { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == arrLevel[i])
-			(this->*ptr[i])();
-			//index = i;
+			index = i;
+			//(this->*ptr[i])();
 	}
 
-	//switch (index)
-	//{
-	//	case 0:
-	//		(this->*ptr[index])();
-	//		break;
-	//	case 1:
-	//		(this->*ptr[index])();
-	//		break;
-	//	case 2:
-	//		(this->*ptr[index])();
-	//		break;
-	//	case 3:
-	//		(this->*ptr[index])();
-	//		break;
-	//	default:
-	//		except();
-	//		break;
-	//}
+	switch (index)
+	{
+		case 0:
+			(this->*ptr[index])();
+			break;
+		case 1:
+			(this->*ptr[index])();
+			break;
+		case 2:
+			(this->*ptr[index])();
+			break;
+		case 3:
+			(this->*ptr[index])();
+			break;
+		default:
+			except();
+			break;
+	}
 }
 
 void Karen::debug(void)

@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(){};
+Zombie::Zombie(){}
 int Zombie::_index = 0;
 
 Zombie::~Zombie()
@@ -8,9 +8,11 @@ Zombie::~Zombie()
 	std::cout << _name << " Zombie Bye~😜!!" << std::endl;
 }
 
-void Zombie::zombie_init(std::string input)
+void Zombie::setName(std::string input)
 {
-	_name = input + " " + std::to_string(++_index);
+	std::stringstream ssStr;
+	ssStr << ++_index;
+	_name = input + "[" + ssStr.str() + "]";
 }
 
 void Zombie::announce(void)

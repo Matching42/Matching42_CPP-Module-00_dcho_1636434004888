@@ -19,7 +19,8 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "TEST KAREN!! 1. TEST 2. EXIT : ";
-		select = std::stoi(my_cin());
+		std::stringstream ssInt(my_cin());
+		ssInt >> select;
 		if (select == 1)
 		{
 			std::cout << "LEVEL SELECT\nex) DEBUG, INFO, WARNING, ERROR : ";

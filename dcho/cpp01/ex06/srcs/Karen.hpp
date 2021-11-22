@@ -1,4 +1,7 @@
+#ifndef KAREN_HPP
+#define KAREN_HPP
 #include <iostream>
+#include <string>
 
 class Karen
 {
@@ -6,6 +9,7 @@ class Karen
 		Karen();
 		~Karen();
 		void complain(std::string level);
+
 	private:
 		void debug(void);
 		void info(void);
@@ -16,3 +20,4 @@ class Karen
 
 std::string str_toupper(std::string str);
 
+#endif
