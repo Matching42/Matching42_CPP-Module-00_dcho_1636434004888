@@ -2,8 +2,10 @@
 
 int main()
 {
-    ScavTrap ST("James");
+    ScavTrap a("a");
+    ScavTrap b("b");
     
-    ST.guardGate();
+    // a.attack("b");
+    a.guardGate();
     return 0;
 }

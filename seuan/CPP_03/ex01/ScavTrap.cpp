@@ -6,6 +6,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     set_Hp(100);
     set_Ep(50);
     set_Ad(20);
+    _guard_mode = 0;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
@@ -14,6 +15,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     set_Hp(100);
     set_Ep(50);
     set_Ad(20);
+    _guard_mode = 0;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -23,5 +25,12 @@ ScavTrap::~ScavTrap(void)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap have enterred in Gate keeper mode." << std::endl;
+    if (get_Ep() >= 25)
+    {
+        _guard_mode = 1;
+        set_Ep((get_Ep() - 25));
+        std::cout << "ScavTrap " << get_Name() << " have enterred in Gate keeper mode." << std::endl;
+    }
+    else
+        std::cout << "ScavTrap " << get_Name() << " have not enough Energy." << std::endl;
 }

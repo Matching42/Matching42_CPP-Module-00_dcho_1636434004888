@@ -31,11 +31,15 @@ void ClapTrap::attack(std::string const & target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     _Hit_points -= amount;
+    std::cout << "ClapTrap " << get_Name() << " take " << amount << " damage. "
+    << "Now, ClapTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     _Hit_points += amount;;
+    std::cout << "ClapTrap " << get_Name() << " repaired " << amount << " Hit_points. "
+    << "Now, ClapTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
 }
 
 void ClapTrap::set_Name(std::string name)

@@ -12,6 +12,7 @@ class ScavTrap : ClapTrap
         void guardGate();
 
     private:
+        int _guard_mode;
 };
 
 #endif
