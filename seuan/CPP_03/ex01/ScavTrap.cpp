@@ -34,3 +34,32 @@ void ScavTrap::guardGate()
     else
         std::cout << "ScavTrap " << get_Name() << " have not enough Energy." << std::endl;
 }
+
+void ScavTrap::attack(std::string const & target)
+{
+    if (_guard_mode == 1)
+        _guard_mode = 0;
+    std::cout << "ScavTrap " << get_Name() << " attacks " << target <<
+    " causing " << get_Ad() << " points of damage!" << std::endl;
+}
+
+void ScavTrap::takeDamage(unsigned int amount)
+{
+    if (_guard_mode == 1)
+        std::cout << "ScavTrap " << get_Name() << " defended the attack." << std::endl;
+    else
+    {
+        set_Hp(get_Hp() - amount);
+        std::cout << "ScavTrap " << get_Name() << " take " << amount << " damage. "
+        << "Now, ScavTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
+    }
+    if (get_Hp() < 50 && _guard_mode == 0)
+        guardGate();
+}
+
+void ScavTrap::beRepaired(unsigned int amount)
+{
+    set_Hp(get_Hp() + amount);
+    std::cout << "ScavTrap " << get_Name() << " repaired " << amount << " Hit_points. "
+    << "Now, ScavTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
+}
