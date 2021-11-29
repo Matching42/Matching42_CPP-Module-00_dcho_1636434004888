@@ -3,7 +3,7 @@
 int main()
 {
     FragTrap a("a");
-    FragTrap b("b");
+    FragTrap b;
     
     std::cout << std::endl;
 
