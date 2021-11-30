@@ -8,7 +8,7 @@ int main()
     a.whoAmI();
     std::cout << std::endl;
     
-    DiamondTrap b;
+    DiamondTrap b("b");
     std::cout << std::endl;
     std::cout << std::endl;
     b.whoAmI();

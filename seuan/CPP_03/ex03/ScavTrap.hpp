@@ -2,6 +2,9 @@
 # define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
+# define S_HP 100
+# define S_EP 50
+# define S_AD 20
 
 class ScavTrap : virtual public ClapTrap
 {

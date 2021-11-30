@@ -6,7 +6,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
-    // std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
@@ -15,12 +14,11 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
-    // std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-    // std::cout << "ScavTrap destructor <" << _Name << "> called" << std::endl;
+    ;
 }
 
 void ScavTrap::guardGate()
