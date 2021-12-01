@@ -25,7 +25,13 @@ const Fixed& Point::getY(void) const
 	return (y);
 }
 
-
+void bspPrint(bool b)
+{
+	if (b == 1)
+		std::cout << "[True  !!], point는 a, b, c 세 점으로 만든 삼각형 안에 있습니다." << std::endl;
+	else
+		std::cout << "[False !!], point는 a, b, c 세 점으로 만든 삼각형 안에 없습니다." << std::endl;
+}
 
 
 

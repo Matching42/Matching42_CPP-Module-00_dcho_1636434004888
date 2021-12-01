@@ -6,7 +6,7 @@ RM = rm -rf
 NAME = a.out
 
 SRC =	main.cpp\
-		Fixed.cpp
+		ClapTrap.cpp
 
 SRC_DIR = ./srcs/
 SRCS = $(addprefix $(SRC_DIR),$(SRC))

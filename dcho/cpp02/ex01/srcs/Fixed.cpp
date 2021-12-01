@@ -12,15 +12,12 @@ Fixed::Fixed(const int param):
 	_value(param << 8)
 {
 	std::cout << "Int constructor called" << std::endl;
-	std::cout << "Int value : "<<  _value << std::endl;
 }
 
 Fixed::Fixed(const float param):
-	// _value(roundf(param * (1 << 8))) // float는 shift 연산이 X
 	_value(roundf(param * (1 << 8)))
 {
 	std::cout << "Float constructor called" << std::endl;
-	std::cout << "Float value : "<<  _value << std::endl;
 }
 
 Fixed::~Fixed()
@@ -34,22 +31,12 @@ Fixed::Fixed(const Fixed& copy)
 	*this = copy;
 }
 
-int Fixed::getRawBits(void) const
-{
-	return (_value);
-}
-
-void Fixed::setRawBits(int const raw)
-{
-	_value = raw;
-}
-
 Fixed& Fixed::operator = (const Fixed& fixed)
 {
 	if (this == &fixed)
 		return (*this);
 	std::cout << "Assignation operator called" << std::endl;
-	_value = fixed.getRawBits();
+	_value = fixed._value;
 	return (*this);
 }
 

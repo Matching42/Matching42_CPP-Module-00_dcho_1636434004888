@@ -45,7 +45,7 @@ float Fixed::toFloat(void) const
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
-    os << fixed.toFloat();
+	os << fixed.toFloat();
     return os;
 }
 
