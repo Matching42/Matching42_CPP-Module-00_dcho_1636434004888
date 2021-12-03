@@ -9,7 +9,7 @@ int main(void)
 	s2.attack("DOK2");
 	s2.ScavTrap::takeDamage(20);
 	s2.guardGate();
-	s2.ScavTrap::takeDamage(80);
+	s2.takeDamage(80);
 	s2.ScavTrap::takeDamage(80);
 	s2.ScavTrap::takeDamage(80);
 	s2.beRepaired(100);

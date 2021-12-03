@@ -13,6 +13,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap& operator = (const ScavTrap& scavtrap);
 		void takeDamage(unsigned int amount);
 		void guardGate();
+		// void berre
 
 	private:
 		unsigned int guardMode;
