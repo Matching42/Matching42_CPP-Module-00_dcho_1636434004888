@@ -21,5 +21,4 @@ class ClapTrap
         int _Ad;  
 };
 
-
 #endif

@@ -13,11 +13,6 @@ class ClapTrap
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        // void set_Name(std::string name);
-        // std::string get_Name(void);
-        // int get_Hp(void);
-        // int get_Ep(void);
-        // int get_Ad(void);
 
     private:
         std::string _Name;

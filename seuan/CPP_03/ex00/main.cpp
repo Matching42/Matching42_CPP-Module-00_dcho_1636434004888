@@ -8,7 +8,7 @@ int main()
     std::cout << std::endl;
     
     a.attack("b");
-    b.takeDamage(a.get_Ad());
+    b.takeDamage(0);
     b.beRepaired(20);
 
     std::cout << std::endl;

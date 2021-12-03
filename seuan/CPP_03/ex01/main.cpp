@@ -20,6 +20,7 @@ int main()
     std::cout << std::endl;
     b.guardGate();
     b.guardGate();
+    b.beRepaired(50);
     
     std::cout << std::endl;
     return 0;

@@ -57,10 +57,3 @@ void ScavTrap::takeDamage(unsigned int amount)
         << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
     }
 }
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-    _Hp += amount;
-    std::cout << "ScavTrap " << _Name << " repaired " << amount << " Hp. "
-    << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
-}

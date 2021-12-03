@@ -2,16 +2,16 @@
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    _Hp = 100;
-    _Ep = 100;
-    _Ad = 30;
+    _Hp = F_HP;
+    _Ep = F_EP;
+    _Ad = F_AD;
 }
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-    _Hp = 100;
-    _Ep = 100;
-    _Ad = 30;
+    _Hp = F_HP;
+    _Ep = F_EP;
+    _Ad = F_AD;
 }
 
 FragTrap::~FragTrap(void)

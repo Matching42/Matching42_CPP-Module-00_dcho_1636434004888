@@ -35,31 +35,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     << "Now, ClapTrap " << _Name << " Hp: " << _Hp << std::endl;
 }
 
-// void ClapTrap::set_Name(std::string name)
-// {
-//     _Name = name;
-// }
-
-// std::string ClapTrap::get_Name(void)
-// {
-//     return (_Name);
-// }
-
-// int ClapTrap::get_Hp(void)
-// {
-//     return (_Hp);
-// }
-
-// int ClapTrap::get_Ep(void)
-// {
-//     return (_Ep);
-// }
-
-// int ClapTrap::get_Ad(void)
-// {
-//     return (_Ad);
-// }
-
 ClapTrap& ClapTrap::operator = (const ClapTrap& cp)
 {
     _Name = cp._Name;

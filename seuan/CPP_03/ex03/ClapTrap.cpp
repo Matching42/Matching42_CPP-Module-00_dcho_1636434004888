@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _Name(name), _Hp(10), _Ep(10), _Ad(0)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hp(C_HP), _Ep(C_EP), _Ad(C_AD)
 {
     std::cout << "ClapTrap constructor <" << _Name << "> called" << std::endl;
 }
 
-ClapTrap::ClapTrap(void) : _Name("Default"), _Hp(10), _Ep(10), _Ad(0)
+ClapTrap::ClapTrap(void) : _Name("Default"), _Hp(C_HP), _Ep(C_EP), _Ad(C_AD)
 {
     std::cout << "ClapTrap constructor <" << _Name << "> called" << std::endl;
 }

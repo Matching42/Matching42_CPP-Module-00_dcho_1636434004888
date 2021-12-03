@@ -2,17 +2,17 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {
-    _Hp = 100;
-    _Ep = 50;
-    _Ad = 20;
+    _Hp = S_HP;
+    _Ep = S_EP;
+    _Ad = S_AD;
     _guard_mode = 0;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-    _Hp = 100;
-    _Ep = 50;
-    _Ad = 20;
+    _Hp = S_HP;
+    _Ep = S_EP;
+    _Ad = S_AD;
     _guard_mode = 0;
 }
 
@@ -54,11 +54,4 @@ void ScavTrap::takeDamage(unsigned int amount)
         std::cout << "ScavTrap " << _Name << " take " << amount << " damage. "
         << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
     }
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-    _Hp += amount;
-    std::cout << "ScavTrap " << _Name << " repaired " << amount << " Hp. "
-    << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
 }
