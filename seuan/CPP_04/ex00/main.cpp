@@ -27,5 +27,15 @@ int main()
     std::cout << std::endl;
     meta->makeSound();
     std::cout << std::endl;
+
+    delete meta;
+    delete i;
+    delete j;
+    meta = NULL;
+    i = NULL;
+    j = NULL;
+
+    system("leaks Animal");
+    return 0;
 }
 

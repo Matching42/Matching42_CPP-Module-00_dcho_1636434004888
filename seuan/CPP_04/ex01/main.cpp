@@ -10,5 +10,7 @@ int main()
     
     delete j;//should not create a leak
     delete i;
+
+    system("leaks Animal");
 }
 

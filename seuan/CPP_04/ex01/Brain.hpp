@@ -10,6 +10,7 @@ class Brain
         Brain(const Brain &brain);
         ~Brain();
         Brain &operator= (const Brain &brain);
+        std::string ideas[100];
 };
 
 #endif

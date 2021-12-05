@@ -2,6 +2,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -10,6 +11,9 @@ class Cat : public Animal
         ~Cat();
         Cat (const Cat &cat);
         Cat &operator= (const Cat &cat);
+    
+    private:
+        Brain *_brain;
 };
 
 #endif
