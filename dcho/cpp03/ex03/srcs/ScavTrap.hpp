@@ -3,7 +3,13 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+# define S_HP 100
+# define S_EP 50
+# define S_AD 20
+# define GM_ON 1
+# define GM_OFF 0
+
+class ScavTrap: virtual public ClapTrap
 {
 	public:
 		ScavTrap();
@@ -12,6 +18,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap(const ScavTrap& copy);
 		ScavTrap& operator = (const ScavTrap& scavtrap);
 		void takeDamage(unsigned int amount);
+		void attack(std::string const& target);
 		void guardGate();
 
 	private:
