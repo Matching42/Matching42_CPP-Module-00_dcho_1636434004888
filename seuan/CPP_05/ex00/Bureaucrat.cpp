@@ -39,12 +39,20 @@ Bureaucrat& Bureaucrat::operator = (const Bureaucrat &bur)
     return (*this);
 }
 
-std::string Bureaucrat::getName()
+std::ostream& operator << ( std::ostream &out, const Bureaucrat &bur )
+{
+    out << bur.getName();
+    out << ", bureaucrat grade ";
+    out << bur.getGrade();
+    return out;
+}
+
+std::string Bureaucrat::getName() const
 {
     return (_name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return (_grade);   
 }
@@ -101,10 +109,12 @@ int Bureaucrat::isValidGrade(int grade)
 const char* Bureaucrat::Exception::what() const throw() {
     return ("Exception");
 }
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("GradeTooHighException");
 }
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("GradeTooLowException");
