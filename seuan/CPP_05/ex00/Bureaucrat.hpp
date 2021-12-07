@@ -5,24 +5,6 @@
 # include <string>
 # include <exception>
 
-class GradeTooHighException : public std::exception
-{
-	public:
-		const char* what(void) const throw()
-		{
-			return ("GradeTooHighException");
-		}
-};
-
-class GradeTooLowException : public std::exception
-{
-	public:
-		const char* what(void) const throw()
-		{
-			return ("GradeTooLowException");
-		}
-};
-
 class Bureaucrat
 {
     public:
@@ -32,13 +14,30 @@ class Bureaucrat
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat& bur);
         Bureaucrat &operator = (const Bureaucrat& bur);
-        GradeTooHighException GradeTooHighException;
-        GradeTooLowException GradeTooLowException;
         std::string getName();
         int getGrade();
         void incrementGrade();
         void decrementGrade();
         int isValidGrade(int grade);
+
+        
+        class Exception : public std::exception
+        {
+            public:
+                const char* what(void) const throw();
+        };
+        class GradeTooHighException : public Bureaucrat::Exception
+        {
+            public:
+                //  const char* what(void) const throw() { return ("GradeTooHighException"); }
+                const char* what(void) const throw();
+        };
+        class GradeTooLowException : public Bureaucrat::Exception
+        {
+            public:
+                //  const char* what(void) const throw() { return ("GradeTooLowException"); }
+                const char* what(void) const throw();
+        };
 
     private:
         std::string _name;

@@ -54,7 +54,7 @@ void Bureaucrat::incrementGrade()
     try
     {
         if (_grade <= 1)
-            throw (Bureaucrat::GradeTooHighException);
+            throw (Bureaucrat::GradeTooHighException());
         else
             _grade--;
     }
@@ -70,7 +70,7 @@ void Bureaucrat::decrementGrade()
     try
     {
         if (_grade >= 150)
-            throw (Bureaucrat::GradeTooLowException);
+            throw (Bureaucrat::GradeTooLowException());
         else
             _grade++;
     }
@@ -86,9 +86,9 @@ int Bureaucrat::isValidGrade(int grade)
     try
     {
         if (grade > 150)
-            throw (Bureaucrat::GradeTooLowException);
+            throw (Bureaucrat::GradeTooLowException());
         else if (grade < 1)
-            throw (Bureaucrat::GradeTooHighException);
+            throw (Bureaucrat::GradeTooHighException());
     }
     catch(std::exception& e)
     {
@@ -97,3 +97,19 @@ int Bureaucrat::isValidGrade(int grade)
     }
     return 1;
 }
+
+const char* Bureaucrat::Exception::what() const throw() {
+    return ("Exception");
+}
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("GradeTooHighException");
+}
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("GradeTooLowException");
+}
+
+
+
+
