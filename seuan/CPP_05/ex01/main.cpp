@@ -1,26 +1,20 @@
 // exceptions
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main ()
 {
-    Bureaucrat bur("James", 1);
-    Bureaucrat bur2;
+    // 1. Constructor try catch
+    Form a("a", 235, 235); // Too low
+    Form b("b", -42, -42); // Too high
 
-    std::cout << std::endl;
+    // 2. init data
+    Form c("c", 1, 2);
 
-    std::cout <<  bur << std::endl;
-
-    std::cout << std::endl;
-
-    // bur2.incrementGrade();
-    // bur2.decrementGrade();
-
-    // // GradeTooLowException
-    // bur2.decrementGrade();
-
-    // // GradeTooHighException
-    // // bur.incrementGrade();
-    // std::cout << std::endl;
+    Bureaucrat jim("jim", 30);
+    
+    // 3. signForm
+    
     return 0;
 }
