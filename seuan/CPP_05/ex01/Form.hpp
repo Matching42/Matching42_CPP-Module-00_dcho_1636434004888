@@ -1,23 +1,21 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# define FORMMAX 125
-# define FORMMIN 25
-
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
 class Form : public Bureaucrat
 {
     public:
-        Form(std::string name, int gradeSign, int gradeExecute);
         Form();
+        Form(std::string name, int gradeSign, int gradeExecute);
         ~Form();
         Form(const Form& form);
         Form &operator = (const Form& form);
         std::string getName() const;
-        int getGrade() const;
-        int isValidGrade(int grade);
+        int getGradeSign() const;
+        int getGradeExecute() const;
         bool getIsSigned() const;
+        int isValidGrades(int gradeSign, int gradeExecute);
         void beSigned(const Bureaucrat& bur);
 
         class GradeTooHighException : public Bureaucrat::Exception

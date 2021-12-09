@@ -25,9 +25,9 @@ Bureaucrat::~Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
-{ 
+{
     std::cout << _name << " copy constructor called." << std::endl;
-    *this = bur; 
+    *this = bur;
 }
 
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat &bur)
@@ -54,7 +54,7 @@ std::string Bureaucrat::getName() const
 
 int Bureaucrat::getGrade() const
 {
-    return (_grade);   
+    return (_grade);
 }
 
 void Bureaucrat::incrementGrade()
@@ -70,7 +70,7 @@ void Bureaucrat::incrementGrade()
     {
         std::cerr << e.what() << std::endl;
         exit (1);
-    }   
+    }
 }
 
 void Bureaucrat::decrementGrade()
@@ -104,6 +104,16 @@ int Bureaucrat::isValidGrade(int grade)
         exit (1);
     }
     return 1;
+}
+
+int Bureaucrat::signForm(int gradeSign, int gradeExecute)
+{
+	if (_grade > gradeSign)
+		return (ERRSIGN);
+	else if (_grade > gradeExecute)
+		return (ERREXECUTE);
+	else
+		return (1);
 }
 
 const char* Bureaucrat::Exception::what() const throw() {

@@ -5,6 +5,9 @@
 # include <string>
 # include <exception>
 
+# define ERRSIGN -1
+# define ERREXECUTE -2
+
 class Bureaucrat
 {
     public:
@@ -19,22 +22,22 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         int isValidGrade(int grade);
-        void signForm();
-        
+        int signForm(int gradeSign, int gradeExecute);
+
         class Exception : public std::exception
         {
             public:
-                const char* what(void) const throw();
+                virtual const char* what(void) const throw();
         };
         class GradeTooHighException : public Bureaucrat::Exception
         {
             public:
-                const char* what(void) const throw();
+                virtual const char* what(void) const throw();
         };
         class GradeTooLowException : public Bureaucrat::Exception
         {
             public:
-                const char* what(void) const throw();
+                virtual const char* what(void) const throw();
         };
 
     private:
