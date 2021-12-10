@@ -62,11 +62,20 @@ int Form::getGradeExecute() const { return _gradeExecute; }
 
 bool Form::getIsSigned() const { return _isSigned; }
 
+void Form::setName(std::string name) { _name = name; }
+
+void Form::setGradeSign(int grade) { _gradeSign = grade; }
+
+void Form::setGradeExecute(int grade) { _gradeExecute = grade; }
+
+void Form::setIsSigned( bool sign ) { _isSigned = sign; }
+
 void Form::beSigned(const Bureaucrat& bur)
 {
 	int res = Bureaucrat::signForm(bur.getGrade(), _gradeSign, _gradeExecute);
 	if ((res) == ERRSIGN || (res) == ERREXECUTE)
 	{
+        // Modify : you will throw an appropriate exception.
 		switch (res)
 		{
 		case ERRSIGN:

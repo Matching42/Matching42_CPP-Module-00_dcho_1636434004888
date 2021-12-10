@@ -15,6 +15,10 @@ class Form : public Bureaucrat
         int getGradeSign() const;
         int getGradeExecute() const;
         bool getIsSigned() const;
+        void setName( std::string name );
+        void setGradeSign( int grade );
+        void setGradeExecute( int grade );
+        void setIsSigned( bool sign );
         int isValidGrades(int gradeSign, int gradeExecute);
         void beSigned(const Bureaucrat& bur);
 
@@ -28,9 +32,7 @@ class Form : public Bureaucrat
             public:
                 const char* what(void) const throw();
         };
-
-		virtual void execute() const = 0;
-
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
     private:
         std::string _name;

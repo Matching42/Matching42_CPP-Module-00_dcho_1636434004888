@@ -3,6 +3,7 @@ TARGET			= Exception
 SRCS			= 	main.cpp \
 					Bureaucrat.cpp \
 					Form.cpp \
+					ShrubberyCreationForm.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 

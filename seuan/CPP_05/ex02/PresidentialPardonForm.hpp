@@ -1,5 +1,5 @@
-(Required grades: sign 25, exec 5). Action: Tells us
-<target> has been pardoned by Zafod Beeblebrox.
+// (Required grades: sign 25, exec 5). Action: Tells us
+// <target> has been pardoned by Zafod Beeblebrox.
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
