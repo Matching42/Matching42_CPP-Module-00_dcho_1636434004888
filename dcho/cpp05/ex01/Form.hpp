@@ -1,39 +1,40 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat
+class Form
 {
-    public:
-        Form();
-        Form(std::string name, int gradeSign, int gradeExecute);
-        ~Form();
-        Form(const Form& form);
-        Form &operator = (const Form& form);
-        std::string getName() const;
-        int getGradeSign() const;
-        int getGradeExecute() const;
-        bool getIsSigned() const;
-        int isValidGrade(int gradeSign, int gradeExecute);
-        void beSigned(const Bureaucrat& bur);
+	public:
+		Form();
+		Form(std::string name, int gradeSign, int gradeExecute);
+		~Form();
+		Form(const Form& form);
 
-        class GradeTooHighException : public Bureaucrat::Exception
-        {
-            public:
-                const char* what(void) const throw();
-        };
-        class GradeTooLowException : public Bureaucrat::Exception
-        {
-            public:
-                const char* what(void) const throw();
-        };
+		Form &operator = (const Form& form);
+		std::string getName() const;
+		int getGradeSign() const;
+		int getGradeExecute() const;
+		bool getIsSigned() const;
+		int isValidGrades(int gradeSign, int gradeExecute);
+		void beSigned(Bureaucrat& bur);
 
-    private:
-        std::string _name;
-        int _gradeSign;
-        int _gradeExecute;
-        bool _isSigned;
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+
+	private:
+		std::string _name;
+		int _gradeSign;
+		int _gradeExecute;
+		bool _isSigned;
 };
 
 #endif

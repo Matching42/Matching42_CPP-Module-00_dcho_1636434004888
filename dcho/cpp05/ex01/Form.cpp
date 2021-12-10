@@ -2,55 +2,56 @@
 
 Form::Form()
 {
-    _name = "Default";
+	_name = "Default";
 	_gradeSign = 70;
 	_gradeExecute = 70;
-    _isSigned = false;
-    std::cout << _name << " constructor called. " << "This is Form Name : " << _name << " Sign Control Point: " << _gradeSign << " Execute Control Point: " << _gradeExecute << std::endl;
+	_isSigned = false;
+	std::cout << _name << " constructor called. " << "This is Form Name : " << _name << " Sign Control Point: " << _gradeSign << " Execute Control Point: " << _gradeExecute << std::endl;
 }
 
 Form::Form(std::string name, int gradeSign, int gradeExecute)
 	: _name("Default"), _gradeSign(70), _gradeExecute(70), _isSigned(false)
 {
-	if (isValidGrade(gradeSign, gradeExecute))
+	if (isValidGrades(gradeSign, gradeExecute))
 	{
+		_name = name;
 		_gradeSign = gradeSign;
 		_gradeExecute = gradeExecute;
-    	std::cout << _name << " constructor called. " << "This is Form Name : " << _name << " Sign Control Point: " << _gradeSign << " Execute Control Point: " << _gradeExecute << std::endl;
+		std::cout << _name << " constructor called. " << "This is Form Name : " << _name << " Sign Control Point: " << _gradeSign << " Execute Control Point: " << _gradeExecute << std::endl;
 	}
 }
 
 Form::~Form()
 {
-    std::cout << _name << " destructor called." << std::endl;
+	std::cout << _name << " destructor called." << std::endl;
 }
 
 Form::Form(const Form &form)
 {
-    std::cout << _name << " copy constructor called." << std::endl;
-    *this = form;
+	std::cout << _name << " copy constructor called." << std::endl;
+	*this = form;
 }
 
 Form& Form::operator = (const Form &form)
 {
-    if (this == &form)
-        return (*this);
-    _name = form._name;
-    _gradeSign = form._gradeSign;
-    _gradeExecute = form._gradeExecute;
-    return (*this);
+	if (this == &form)
+		return (*this);
+	_name = form._name;
+	_gradeSign = form._gradeSign;
+	_gradeExecute = form._gradeExecute;
+	return (*this);
 }
 
 std::ostream& operator << ( std::ostream &out, const Form &form )
 {
-    out << form.getName();
-    out << ", Form gradeSign ";
-    out << form.getGradeSign();
-    out << ", Form gradeSign ";
-    out << form.getGradeExecute();
-    out << ", Form isSigned ";
-    out << form.getIsSigned();
-    return out;
+	out << form.getName();
+	out << ", Form gradeSign ";
+	out << form.getGradeSign();
+	out << ", Form gradeSign ";
+	out << form.getGradeExecute();
+	out << ", Form isSigned ";
+	out << form.getIsSigned();
+	return out;
 }
 
 std::string Form::getName() const { return _name; }
@@ -61,53 +62,60 @@ int Form::getGradeExecute() const { return _gradeExecute; }
 
 bool Form::getIsSigned() const { return _isSigned; }
 
-void Form::beSigned(const Bureaucrat& bur)
-{
-	int res = Bureaucrat::signForm(_gradeSign, _gradeExecute);
+// void Form::beSigned(const Bureaucrat& bur)
+// {
+// 	int res = Bureaucrat::signForm(bur.getGrade(), _gradeSign, _gradeExecute);
+// 	if ((res) == ERRSIGN || (res) == ERREXECUTE)
+// 	{
+// 		switch (res)
+// 		{
+// 		case ERRSIGN:
+// 			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the sign value." << std::endl;
+// 			break;
+// 		default:
+// 			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the execute value." << std::endl;
+// 			break;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		_isSigned = true;
+// 		std::cout << bur.getName() << " sign " << _name << std::endl;
+// 	}
+// 	_isSigned = false;
+// }Bureaucrat
 
-	if (!(res))
-	{
-		switch (res)
-		{
-		case ERRSIGN:
-			std::cout << bur.getName << " cannot sign " << _name << " because the grade is less than the sign value." << std::endl;
-			break;
-		default:
-			std::cout << bur.getName << " cannot sign " << _name << " because the grade is less than the execute value." << std::endl;
-			break;
-		}
-	}
+void Form::beSigned(Bureaucrat& bur)
+{
+	if (bur.getGrade() > _gradeSign)
+		throw Form::GradeTooLowException();
 	else
-	{
 		_isSigned = true;
-		std::cout << bur.getName << " sign " << _name << std::endl;
+}
+
+int Form::isValidGrades(int gradeSign, int gradeExecute)
+{
+	try
+	{
+		if (gradeSign > 150 || gradeExecute > 150)
+			throw (Form::GradeTooLowException());
+		else if (gradeSign < 1 || gradeExecute < 1)
+			throw (Form::GradeTooHighException());
 	}
-	_isSigned = false;
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		exit (1);
+	}
+	return 1;
 }
 
-int Form::isValidGrade(int gradeSign, int gradeExecute)
+const char* Form::GradeTooHighException::what() const throw()
 {
-    try
-    {
-        if (gradeSign > 150 || gradeExecute > 150)
-            throw (Form::GradeTooLowException());
-        else if (gradeSign < 1 || gradeExecute < 1)
-            throw (Form::GradeTooHighException());
-    }
-    catch(std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-        exit (1);
-    }
-    return 1;
+	return ("GradeTooHighException");
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
-    return ("GradeTooHighException");
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
-    return ("GradeTooLowException");
+	return ("GradeTooLowException");
 }
