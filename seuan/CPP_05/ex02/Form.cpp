@@ -72,18 +72,18 @@ void Form::setIsSigned( bool sign ) { _isSigned = sign; }
 
 void Form::beSigned(const Bureaucrat& bur)
 {
-	int res = Bureaucrat::signForm(bur.getGrade(), _gradeSign, _gradeExecute);
+	int res = bur.signForm(bur.getGrade(), _gradeSign, _gradeExecute);
 	if ((res) == ERRSIGN || (res) == ERREXECUTE)
 	{
         // Modify : you will throw an appropriate exception.
 		switch (res)
 		{
-		case ERRSIGN:
-			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the sign value." << std::endl;
-			break;
-		default:
-			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the execute value." << std::endl;
-			break;
+            case ERRSIGN:
+                std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the sign value." << std::endl;
+                break;
+            default:
+                std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the execute value." << std::endl;
+                break;
 		}
 	}
 	else
@@ -114,6 +114,16 @@ int Form::isValidGrades(int gradeSign, int gradeExecute)
 const char* Form::GradeTooHighException::what() const throw()
 {
     return ("GradeTooHighException");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return ("GradeTooLowException");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return ("GradeTooLowException");
 }
 
 const char* Form::GradeTooLowException::what() const throw()

@@ -4,12 +4,14 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 {
     setGradeSign(S_SIGN);
     setGradeExecute(S_EXEC);
+    // beSigned(executor);
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat const & executor)
 {
     setGradeSign(S_SIGN);
     setGradeExecute(S_EXEC);
+    beSigned(executor);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

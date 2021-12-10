@@ -5,6 +5,8 @@
 # include <string>
 # include <exception>
 
+# include "Form.hpp"
+
 # define ERRSIGN -1
 # define ERREXECUTE -2
 
@@ -22,7 +24,9 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         int isValidGrade(int grade);
-        int signForm(int grade, int gradeSign, int gradeExecute);
+        int signForm(int grade, int gradeSign, int gradeExecute) const;
+
+        void executeForm(Form const & form);
 
         class Exception : public std::exception
         {

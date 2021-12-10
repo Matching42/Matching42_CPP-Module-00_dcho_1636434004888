@@ -106,7 +106,7 @@ int Bureaucrat::isValidGrade(int grade)
     return 1;
 }
 
-int Bureaucrat::signForm(int grade, int gradeSign, int gradeExecute)
+int Bureaucrat::signForm(int grade, int gradeSign, int gradeExecute) const  
 {
 	if (grade > gradeSign)
 		return (ERRSIGN);

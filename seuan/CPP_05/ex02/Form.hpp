@@ -3,7 +3,7 @@
 
 # include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat
+class Form
 {
     public:
         Form();
@@ -11,23 +11,34 @@ class Form : public Bureaucrat
         virtual ~Form();
         Form(const Form& form);
         Form &operator = (const Form& form);
+
+        // getter
         std::string getName() const;
         int getGradeSign() const;
         int getGradeExecute() const;
         bool getIsSigned() const;
+
+        // setter
         void setName( std::string name );
         void setGradeSign( int grade );
         void setGradeExecute( int grade );
         void setIsSigned( bool sign );
+
         int isValidGrades(int gradeSign, int gradeExecute);
         void beSigned(const Bureaucrat& bur);
 
-        class GradeTooHighException : public Bureaucrat::Exception
+
+        class Exception : public std::exception
+        {
+            public:
+                virtual const char* what(void) const throw();
+        };
+        class GradeTooHighException : public Form::Exception
         {
             public:
                 const char* what(void) const throw();
         };
-        class GradeTooLowException : public Bureaucrat::Exception
+        class GradeTooLowException : public Form::Exception
         {
             public:
                 const char* what(void) const throw();
