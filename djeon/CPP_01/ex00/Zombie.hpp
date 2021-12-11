@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeon <djeon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:35:23 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/21 16:35:29 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/11 18:05:43 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Zombie {
         void setName(std::string name);
         std::string getName(void);
 
+        Zombie(void);
         Zombie(std::string name);
         ~Zombie(void);
 

@@ -4,19 +4,15 @@ std::string split_to_str(std::string str)
 {
     std::string result;
     
-    if (str.length() <= 10)
-    {
-        for (int i = 0; i < 10 - str.length(); i++)
-            std::cout << " ";
-        return (str);
-    }
-    else
+    if (str.length() > 10)
     {
         for (int i = 0; i < 9; i++)
             result += str[i];
         result += ".";
         return (result);
     }
+    else
+        return (str);
 }
 
 std::string get_line_cpp(void)
@@ -71,10 +67,10 @@ void phonebook::search(int idx, int flag)
     list_idx = idx;
     for (int i = 0; i < len; i++)
     {
-        std::cout << "         " << i << "|";
-        std::cout << split_to_str(cont_list[list_idx % 8].get_first_name()) << "|";
-        std::cout << split_to_str(cont_list[list_idx % 8].get_last_name()) << "|";
-        std::cout << split_to_str(cont_list[list_idx % 8].get_nick_name()) << std::endl;
+        std::cout << std::setw(10) << i << "|";
+        std::cout << std::setw(10) << split_to_str(cont_list[list_idx % 8].get_first_name()) << "|";
+        std::cout << std::setw(10) << split_to_str(cont_list[list_idx % 8].get_last_name()) << "|";
+        std::cout << std::setw(10) << split_to_str(cont_list[list_idx % 8].get_nick_name()) << std::endl;
         list_idx++;
     }
     list_idx = idx;

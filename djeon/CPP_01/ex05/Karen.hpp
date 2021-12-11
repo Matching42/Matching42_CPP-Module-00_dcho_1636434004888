@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:38:38 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/21 21:37:57 by djeon            ###   ########.fr       */
+/*   Updated: 2021/11/25 09:58:30 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Karen {
     class Mapping {
         public:
-            void (Karen::*f2)(); // 원리 알아보기
+            void (Karen::*f2)();
             std::string type;
     };
 

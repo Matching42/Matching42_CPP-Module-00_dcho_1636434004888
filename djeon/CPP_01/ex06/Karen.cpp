@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 02:06:00 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/22 17:22:59 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/11 17:57:47 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,26 @@ Karen::~Karen(void) {
     ;
 }
 
+std::string to_upper(std::string str) {
+    for (int j = 0; j < str.length(); j++) {
+        str[j] = toupper(str[j]);
+    }
+    return str;
+}
+
 void Karen::complain( std::string level ) {
+    if (level != "DEBUG" && level != "INFO" && level != "WARNING" && level != "ERROR") {
+        level = to_upper(level);
+        if (level == "DEBUG" || level == "INFO" || level == "WARNING" || level == "ERROR") {
+            std::cout << "please input upper string" << std::endl;
+            return ;
+        }
+        else {
+            std::cout << "invalid input" << std::endl;
+            return ;
+        }
+    }
+
     int num_level = -1;
     for (int i = 0; i < 4; i++) {
         if (complain_list[i].type == level) {

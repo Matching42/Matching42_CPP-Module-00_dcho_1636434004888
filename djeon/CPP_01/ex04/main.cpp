@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:38:21 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/22 17:09:54 by djeon            ###   ########.fr       */
+/*   Updated: 2021/11/25 09:57:55 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int main(int argc, char *argv[]) {
         while (!readFile.eof()) {
             getline(readFile, str); // 개행을 제외한 문자열만 str에 입력된다.
             str += '\n';
-            if (str.find(before) != std::string::npos) {
-                index = str.find(before);
+            index = -1;
+            while (str.find(before, index + 1) != std::string::npos) {
+                index = str.find(before, index + 1);
                 str.erase(index, before.length());
                 str.insert(index, after);
             }
