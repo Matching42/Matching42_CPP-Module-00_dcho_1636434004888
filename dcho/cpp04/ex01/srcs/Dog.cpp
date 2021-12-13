@@ -39,16 +39,7 @@ void Dog::makeSound() const
 	std::cout << "Dog!!!" << std::endl;
 }
 
-void Dog::getBrain() const
+const Brain *Dog::getBrain() const
 {
-	std::cout << brain->ideas << std::endl;
-}
-
-void Dog::setBrain(std::string set)
-{
-	if (set.length() < 100)
-	{
-		for (size_t i = 0; i < set.length(); i++)
-			brain->ideas[i] = set[i];
-	}
+	return (brain);
 }
