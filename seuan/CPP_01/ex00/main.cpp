@@ -6,18 +6,22 @@
 /*   By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:17:12 by seuan             #+#    #+#             */
-/*   Updated: 2021/11/18 17:26:26 by seuan            ###   ########.fr       */
+/*   Updated: 2021/11/22 16:33:39 by seuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
 
 int main()
 {
-    std::string name[3] = {"James", "john", "Bryan"};
+    std::string name = "James";
+    std::string name2 = "Joey";
 
-    for (int i = 0; i < 3; i++)
-        randomChump(name[i]);
+    Zombie *zom = newZombie(name);
+    zom->announce();
+    delete zom;
+    zom = NULL;
+
+    randomChump(name2);
     return(0);
 }

@@ -1,14 +1,14 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string str)
+Weapon::Weapon( std::string str )
 {
-    this->setType(str);
-    std::cout << "✅ Weapon was created" << std::endl;
+    type = str;
+    std::cout << "✅ Weapon was created ✅" << std::endl;
 }
 
-Weapon::~Weapon()
+Weapon::~Weapon(void)
 {
-    std::cout << "💥 Weapon was destroyed" << std::endl;
+    std::cout << "💥 Weapon was destroyed 💥" << std::endl;
 }
 
 void Weapon::setType( std::string str )

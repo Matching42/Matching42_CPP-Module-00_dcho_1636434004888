@@ -1,14 +1,24 @@
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-    std::string str = "sword";
+    // Create Weapon class
+    Weapon sword = Weapon("the world best sword");
 
-    Weapon w1 = Weapon(str);
+    // HumanA
+    HumanA bob("bob", sword);
+    bob.attack();
+    sword.setType("some other type of sword");
+    bob.attack();
 
-    // only test for Weapon class
-    std::cout << w1.getType() << std::endl;
-    std::cout << &w1.getType() << std::endl;
-
+    // HumanB
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
     return (0);
 }

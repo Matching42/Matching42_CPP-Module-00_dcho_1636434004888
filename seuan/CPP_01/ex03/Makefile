@@ -1,4 +1,4 @@
-TARGET			= weapon
+TARGET			= violence
 
 SRCS			= main.cpp \
 					HumanA.cpp \
