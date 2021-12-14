@@ -4,10 +4,13 @@
 # include <iostream>
 # include <string>
 # include <exception>
-#include "Form.hpp"
+
+# include "Form.hpp"
 
 # define ERRSIGN -1
 # define ERREXECUTE -2
+
+class Form;
 
 class Bureaucrat
 {

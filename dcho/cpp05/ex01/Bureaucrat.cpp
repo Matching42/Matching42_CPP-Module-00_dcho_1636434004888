@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
-
 Bureaucrat::Bureaucrat(std::string name, int grade)
 	: _name("Default"), _grade(150)
 {
@@ -70,7 +68,6 @@ void Bureaucrat::incrementGrade()
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (1);
 	}
 }
 
@@ -86,7 +83,6 @@ void Bureaucrat::decrementGrade()
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (1);
 	}
 }
 
@@ -98,13 +94,14 @@ int Bureaucrat::isValidGrade(int grade)
 			throw (Bureaucrat::GradeTooLowException());
 		else if (grade < 1)
 			throw (Bureaucrat::GradeTooHighException());
+		else
+			return 1;
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (1);
+		return 0;
 	}
-	return 1;
 }
 
 void Bureaucrat::signForm(Form& form)
@@ -116,6 +113,7 @@ void Bureaucrat::signForm(Form& form)
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << getName() << " cannot sign " << form.getName() << " because ";
 		std::cerr << e.what() << '\n';
 	}
 

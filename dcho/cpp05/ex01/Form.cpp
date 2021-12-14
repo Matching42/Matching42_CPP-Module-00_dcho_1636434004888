@@ -101,13 +101,14 @@ int Form::isValidGrades(int gradeSign, int gradeExecute)
 			throw (Form::GradeTooLowException());
 		else if (gradeSign < 1 || gradeExecute < 1)
 			throw (Form::GradeTooHighException());
+		else
+			return 1;
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (1);
+		return 0;
 	}
-	return 1;
 }
 
 const char* Form::GradeTooHighException::what() const throw()

@@ -6,24 +6,27 @@
 int main ()
 {
 	// 1. Constructor try catch
-	// Form a("a", 235, 235); // Too low
-	// Form b("b", -42, -42); // Too high
+	std::cout << "Form constructor" << std::endl;
+	Form a("a", 235, 235); // GradeTooLowException
+	Form b("b", -42, -42); // GradeTooHighException
+	
+	std::cout << std::endl;
+
+	std::cout << "Bureaucrat constructor" << std::endl;
+	Bureaucrat jim("jim", -42);
+	Bureaucrat james("james", 235);
 
 	// 2. init data
-	Form a("a", 1, 2);
-	Form c("c", 100, 100);
+	std::cout << std::endl;
+	Form c("c", 1, 2);
+	Form d("d", 100, 100);
+	Bureaucrat amy("amy", 5);
 
-	Bureaucrat jim("jim", 30);
-
-	// can not sign
-	// a.beSigned(jim);
-
-	// can sign
-	// c.beSigned(jim);
-
-	// 3. signForm
-
-
+	// 3. besigned, signform
+	std::cout << std::endl;
+	amy.signForm(c);
+	std::cout << std::endl;
+	amy.signForm(d);
 
 	return 0;
 }
