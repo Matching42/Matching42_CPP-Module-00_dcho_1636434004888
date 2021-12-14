@@ -9,9 +9,7 @@ SRC =	main.cpp\
 		AMateria.cpp\
 		Cure.cpp\
 		Ice.cpp\
-		ICharacter.cpp\
 		Character.cpp\
-		IMateriaSource.cpp\
 		MateriaSource.cpp
 
 SRC_DIR = ./srcs/

@@ -19,6 +19,23 @@ Cat::Cat(const Cat& copy)
 	*this = copy;
 }
 
+// shallow copy
+// Cat& Cat::operator = (const Cat& cat)
+// {
+// 	if (this == &cat)
+// 		return (*this);
+// 	type = cat.type;
+// 	if (brain)
+// 	{
+// 		delete brain;
+// 		brain = NULL;
+// 	}
+// 	brain = new Brain();
+// 	brain = cat.brain;
+// 	return (*this);
+// }
+
+// Deep Copy
 Cat& Cat::operator = (const Cat& cat)
 {
 	if (this == &cat)
@@ -30,7 +47,8 @@ Cat& Cat::operator = (const Cat& cat)
 		brain = NULL;
 	}
 	brain = new Brain();
-	brain = cat.brain;
+	for (int i = 0; i < MAXIDEA; i++)
+		brain->setIdeas(i, cat.getBrain()->getIdeas(i));
 	return (*this);
 }
 

@@ -19,6 +19,23 @@ Dog::Dog(const Dog& copy)
 	*this = copy;
 }
 
+// shallow copy
+// Dog& Dog::operator = (const Dog& dog)
+// {
+// 	if (this == &dog)
+// 		return (*this);
+// 	type = dog.type;
+// 	if (brain)
+// 	{
+// 		delete brain;
+// 		brain = NULL;
+// 	}
+// 	brain = new Brain();
+// 	brain = dog.brain;
+// 	return (*this);
+// }
+
+// Deep Copy
 Dog& Dog::operator = (const Dog& dog)
 {
 	if (this == &dog)
@@ -30,7 +47,8 @@ Dog& Dog::operator = (const Dog& dog)
 		brain = NULL;
 	}
 	brain = new Brain();
-	brain = dog.brain;
+	for (int i = 0; i < MAXIDEA; i++)
+		brain->setIdeas(i, dog.getBrain()->getIdeas(i));
 	return (*this);
 }
 

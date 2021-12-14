@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 
+# define MAXIDEA 100
+
 class Brain
 {
 	public:
@@ -14,7 +16,7 @@ class Brain
 		const std::string& getIdeas(int index) const;
 		void setIdeas(int index, std::string idea);
 	private:
-		std::string ideas[100];
+		std::string ideas[MAXIDEA];
 };
 
 #endif
