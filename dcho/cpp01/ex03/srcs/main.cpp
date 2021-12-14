@@ -5,7 +5,7 @@
 int main()
 {
   {
-    Weapon club = Weapon("crude spiked club"); // ""안에 있는 것은 cstring 임
+    Weapon club = Weapon("crude spiked club");
     HumanA bob("Bob", club);
     bob.attack();
     club.setType("some other type of club1");

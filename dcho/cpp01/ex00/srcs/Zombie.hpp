@@ -1,19 +1,20 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 #include <iostream>
+#include <string>
 
 class Zombie
 {
-	private:
-		std::string _name;
 	public:
 		Zombie(std::string input);
 		~Zombie();
-
 		void announce(void);
+
+	private:
+		std::string _name;
 };
 
-Zombie* newZombie( std::string name ); // 이렇게 헤더에 선언하는게 맞겠지?
+Zombie* newZombie( std::string name );
 void randomChump( std::string name );
 
 #endif

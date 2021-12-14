@@ -1,6 +1,5 @@
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
-CDEBUG = -fsanitize=address -g -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
@@ -19,12 +18,12 @@ OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-		$(CC) $(CFLAGS) $^ \
+		$(CC) $(CPPFLAGS) $^ \
 		-o $@
 
 $(OBJ_DIR)%.o : $(SRC_DIR)/%.cpp
 		@mkdir -p $(OBJ_DIR)
-		$(CC) $(CFLAGS) -o $@ -c $<
+		$(CC) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 		$(RM) $(OBJ_DIR)

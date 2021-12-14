@@ -14,7 +14,7 @@ std::string str_toupper(std::string str)
 void Karen::complain(std::string level)
 {
 	std::string arrLevel[4] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	int index;
+	int index = -1;
 	level = str_toupper(level);
 	for (int i = 0; i < 4; i++)
 	{

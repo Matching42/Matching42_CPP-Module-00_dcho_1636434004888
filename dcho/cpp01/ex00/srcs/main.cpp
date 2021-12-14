@@ -2,10 +2,14 @@
 
 int	main(void)
 {
-	std::string a;
+	std::string nameHeap = "heapZombie";
+	std::string nameStack = "stackZombie";
 
-	a = "dcho";
-	randomChump(a);
+	Zombie *heap = newZombie(nameHeap);
+	heap->announce();
+	delete(heap);
+	heap = NULL;
 
+	randomChump(nameStack);
 	return (0);
 }
