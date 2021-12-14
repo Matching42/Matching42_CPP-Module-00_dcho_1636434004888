@@ -24,7 +24,6 @@ void Account::_displayTimestamp(void) {
 Account::Account(int initial_deposit) {
     _accountIndex = _nbAccounts;
     _nbAccounts++;
-    _totalNbDeposits++;
     _totalAmount += initial_deposit;
     _amount = initial_deposit;
     _nbDeposits = 0;
