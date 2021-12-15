@@ -14,9 +14,6 @@ class ShrubberyCreationForm : public Form
         ShrubberyCreationForm(const ShrubberyCreationForm& sform);
         ShrubberyCreationForm& operator = (const ShrubberyCreationForm& sform);
         void execute(Bureaucrat const & executor) const;
-        void beSigned(Bureaucrat const & executor);
-        
-	private:
 };
 
 #endif
