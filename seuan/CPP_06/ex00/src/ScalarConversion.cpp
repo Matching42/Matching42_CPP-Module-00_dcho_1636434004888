@@ -41,28 +41,28 @@ void ScalarConversion::toChar() const
     // Impossible
     if (tmp < 0 || tmp > 255 || _IsNaN == true)
         std::cout << "impossible" << std::endl;
-
     // Non displayable
-    if (tmp < 32 || tmp > 127)
+    else if (tmp < 32 || tmp > 127)
         std::cout << "Non displayable" << std::endl;
+    // Displayable
     else
-    {
-        char rtn = tmp;
-        std::cout << rtn << std::endl;
-    }
+        std::cout << "'" << static_cast<char>(tmp) << "'" << std::endl;
 }
 
 void ScalarConversion::toInt() const
 {
     std::cout << "int: ";
+    std::cout << std::endl;
 }
 
 void ScalarConversion::toFloat() const
 {
     std::cout << "float: ";
+    std::cout << std::endl;
 }
 
 void ScalarConversion::toDouble() const
 {
     std::cout << "double: ";
+    std::cout << std::endl;
 }

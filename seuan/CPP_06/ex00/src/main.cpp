@@ -25,14 +25,14 @@ int main(int ac, char **av)
 {
     if (ac == 2)
     {
-        // 1. Char pointer to String
+        // Initializing
         ScalarConversion sc(av[1]);
 
-        // 2. Check to that literal must belong to one of the following a scalar types: char, int, float or double.  
-
-        // 3. Type Casting
+        // Print result
         sc.toChar();
-        // 4. Print result
+        sc.toInt();
+        sc.toFloat();
+        sc.toDouble();
     }
     else
     {
