@@ -1,82 +1,52 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-{
-    setGradeSign(S_SIGN);
-    setGradeExecute(S_EXEC);
-    // beSigned(executor);
-}
+    : Form("Shrubbery", S_SIGN, S_EXEC)
+    {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat const & executor)
-{
-    setGradeSign(S_SIGN);
-    setGradeExecute(S_EXEC);
-    beSigned(executor);
-}
+    : Form("Shrubbery", S_SIGN, S_EXEC)
+    {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-
-}
+    {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& sform)
 {
-
+    *this = sform;
 }
 
-// ShrubberyCreationForm &operator = (const ShrubberyCreationForm& sform);
+ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreationForm& sform)
+{
+    if (this == &sform)
+        return (*this);
+    setName(sform.getName());
+    setGradeSign(sform.getGradeSign());
+    setGradeExecute(sform.getGradeExecute());
+    setIsSigned(sform.getIsSigned());
+    return (*this);
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    std::cout << "Run ShrubberyCreationForm" << std::endl;
-    
-    std::cout << "       *             ," << std::endl;
-    std::cout << "                   _/^\\_" << std::endl;
-    std::cout << "                  <     >" << std::endl;
-    std::cout << " *                 /.-.\\         *" << std::endl;
-    std::cout << "          *        `/&\\`                   *" << std::endl;
-    std::cout << "                  ,@.*;@," << std::endl;
-    std::cout << "                 /_o.I %_\\    *" << std::endl;
-    std::cout << "    *           (`'--:o(_@;" << std::endl;
-    std::cout << "               /`;--.,__ `')             *" << std::endl;
-    std::cout << "              ;@`o % O,*`'`&\"" << std::endl;
-    std::cout << "        *    (`'--)_@ ;o %'()\\      *" << std::endl;
-    std::cout << "             /`;--._`''--._O'@;" << std::endl;
-    std::cout << "            /&*,()~o`;-.,_ `""`)" << std::endl;
-    std::cout << " *          /`,@ ;+& () o*`;-';\"" << std::endl;
-    std::cout << "           (`\"\"--.,_0 +% @' &()\"" << std::endl;
-    std::cout << "           /-.,_    ``''--....-'`)  *" << std::endl;
-    std::cout << "  *       /@%;o`:;'--,.__   __.'\"" << std::endl;
-    std::cout << "          ;*,&(); @ % &^;~``~``*();         *" << std::endl;
-    std::cout << "          /(); o^~; & ().o@*&`;&%O\"" << std::endl;
-    std::cout << "      __.----.(\\-''#####---...___...-----._" << std::endl;
-    std::cout << "              `      \\)_`               " << std::endl;
-    std::cout << "              `      \\)_`               " << std::endl;
-    std::cout << "              `      \\)_`               " << std::endl;
-    std::cout << "              `      \\)_`               " << std::endl;
-    std::cout << "              `      \\)_`               " << std::endl;
-}
+    std::ifstream fin("ASCII_Tree");
+    std::ofstream	fout(executor.getName() + "_shrubbery");
+    std::string     fc;
 
-void ShrubberyCreationForm::beSigned(Bureaucrat const & executor)
-{
-    std::cout << getGradeSign() << " | " << getGradeExecute() << std::endl;
-	int res = Bureaucrat::signForm(executor.getGrade(), getGradeSign(), getGradeExecute());
-	if ((res) == ERRSIGN || (res) == ERREXECUTE)
+    if (getIsSigned() == false)
+        throw (Form::SignException());
+    if (executor.getGrade() >= getGradeExecute())
+        throw (Form::ExecuteException());
+    if (!fin.is_open())
 	{
-		switch (res)
-		{
-		case ERRSIGN:
-			std::cout << executor.getName() << " cannot sign " << getName() << " because the grade is less than the sign value." << std::endl;
-			break;
-		default:
-			std::cout << executor.getName() << " cannot sign " << getName() << " because the grade is less than the execute value." << std::endl;
-			break;
-		}
+		std::cerr << "Can not find file!" << std::endl;
+		exit(100);
 	}
-	else
-	{
-		setIsSigned(true);
-		std::cout << executor.getName() << " sign " << getName() << std::endl;
-        execute(executor);
-	}
-	setIsSigned(false);
+    fin.seekg(0, std::ios::end);
+	int size = fin.tellg();
+	fc.resize(size);
+	fin.seekg(0, std::ios::beg);
+	fin.read(&fc[0], size);
+    if (fout.is_open())
+		fout << fc << std::endl;
 }

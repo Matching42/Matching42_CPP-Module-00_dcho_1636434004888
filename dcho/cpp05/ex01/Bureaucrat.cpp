@@ -119,16 +119,6 @@ void Bureaucrat::signForm(Form& form)
 
 }
 
-// int Bureaucrat::signForm(int grade, int gradeSign, int gradeExecute)
-// {
-// 	if (grade > gradeSign)
-// 		return (ERRSIGN);
-// 	else if (grade > gradeExecute)
-// 		return (ERREXECUTE);
-// 	else
-// 		return (1);
-// }
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("GradeTooHighException");
@@ -138,7 +128,3 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("GradeTooLowException");
 }
-
-
-
-

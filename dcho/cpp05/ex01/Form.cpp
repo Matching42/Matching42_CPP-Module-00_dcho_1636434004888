@@ -62,32 +62,9 @@ int Form::getGradeExecute() const { return _gradeExecute; }
 
 bool Form::getIsSigned() const { return _isSigned; }
 
-// void Form::beSigned(const Bureaucrat& bur)
-// {
-// 	int res = Bureaucrat::signForm(bur.getGrade(), _gradeSign, _gradeExecute);
-// 	if ((res) == ERRSIGN || (res) == ERREXECUTE)
-// 	{
-// 		switch (res)
-// 		{
-// 		case ERRSIGN:
-// 			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the sign value." << std::endl;
-// 			break;
-// 		default:
-// 			std::cout << bur.getName() << " cannot sign " << _name << " because the grade is less than the execute value." << std::endl;
-// 			break;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		_isSigned = true;
-// 		std::cout << bur.getName() << " sign " << _name << std::endl;
-// 	}
-// 	_isSigned = false;
-// }Bureaucrat
-
 void Form::beSigned(Bureaucrat& bur)
 {
-	if (bur.getGrade() > _gradeSign)
+	if (bur.getGrade() >= _gradeSign)
 		throw Form::GradeTooLowException();
 	else
 		_isSigned = true;

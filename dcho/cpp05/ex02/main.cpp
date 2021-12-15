@@ -1,23 +1,36 @@
 // exceptions
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-int main()
+int main ()
 {
-    // ShrubberyCreationForm
-    Bureaucrat jim("jim", 136);
-    
-    // 1. Constructor
-    Form *i = new ShrubberyCreationForm(jim);
-    // ShrubberyCreationForm a(jim);
+	// 1. Constructor try catch
+	// std::cout << "Form constructor" << std::endl;
+	// Form a("a", 235, 235); // GradeTooLowException
+	// Form b("b", -42, -42); // GradeTooHighException
+	ShrubberyCreationForm sform;
+	std::cout << std::endl;
 
-    // 2. Sign
-    // i->beSigned(jim);
+	std::cout << "Bureaucrat constructor" << std::endl;
+	Bureaucrat jim("jim", -42);
+	Bureaucrat james("james", 235);
 
-    // To-do list
-    // Bureaucrat - Form 상속 제거
-    // 파일 입출력 구현 (ASCII tree)
-    // if문에서 출력 대신 throw 교체
-    return 0;
+	// 2. init data
+	std::cout << std::endl;
+	// Form c("c", 1, 2);
+	// Form d("d", 100, 100);
+	Bureaucrat amy("amy", 130);
+
+	// 3. besigned, signform
+	amy.signForm(sform);
+	amy.executeForm(sform);
+	// amy.executeForm(sform);
+	std::cout << std::endl;
+	// amy.signForm(c);
+	std::cout << std::endl;
+	// amy.signForm(d);
+
+	return 0;
 }

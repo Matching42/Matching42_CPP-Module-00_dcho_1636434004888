@@ -3,53 +3,57 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
-    public:
-        Form();
-        Form(std::string name, int gradeSign, int gradeExecute);
-        virtual ~Form();
-        Form(const Form& form);
-        Form &operator = (const Form& form);
+	public:
+		Form();
+		Form(std::string name, int gradeSign, int gradeExecute);
+		virtual ~Form();
+		Form(const Form& form);
 
-        // getter
-        std::string getName() const;
-        int getGradeSign() const;
-        int getGradeExecute() const;
-        bool getIsSigned() const;
+		Form &operator = (const Form& form);
+		std::string getName() const;
+		int getGradeSign() const;
+		int getGradeExecute() const;
+		bool getIsSigned() const;
+		void setName(std::string name);
+		void setGradeSign(int gradeSign);
+		void setGradeExecute(int gradeExecute);
+		void setIsSigned(bool isSigned);
+		
 
-        // setter
-        void setName( std::string name );
-        void setGradeSign( int grade );
-        void setGradeExecute( int grade );
-        void setIsSigned( bool sign );
+		int isValidGrades(int gradeSign, int gradeExecute);
+		virtual void beSigned(Bureaucrat& bur);
+		// Define pure virtual method
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
-        int isValidGrades(int gradeSign, int gradeExecute);
-        void beSigned(const Bureaucrat& bur);
-
-
-        class Exception : public std::exception
-        {
-            public:
-                virtual const char* what(void) const throw();
-        };
-        class GradeTooHighException : public Form::Exception
-        {
-            public:
-                const char* what(void) const throw();
-        };
-        class GradeTooLowException : public Form::Exception
-        {
-            public:
-                const char* what(void) const throw();
-        };
-        virtual void execute(Bureaucrat const & executor) const = 0;
-
-    private:
-        std::string _name;
-        int _gradeSign;
-        int _gradeExecute;
-        bool _isSigned;
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+		class ExecuteException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+		class SignException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+	private:
+		std::string _name;
+		int _gradeSign;
+		int _gradeExecute;
+		bool _isSigned;
 };
 
 #endif
