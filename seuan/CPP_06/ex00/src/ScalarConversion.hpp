@@ -14,15 +14,14 @@ class ScalarConversion
 		~ScalarConversion();
 		ScalarConversion(const ScalarConversion& sc);
 		ScalarConversion &operator = (const ScalarConversion& sc);
-
-		class InvalidException : public std::exception
-		{
-			public:
-				virtual const char* what(void) const throw();
-		};
+        void toChar() const;
+        void toInt() const;
+        void toFloat() const;
+        void toDouble() const;
 
 	private:
-
+        std::string _Var;
+        bool _IsNaN;
 };
 
 #endif
