@@ -5,6 +5,8 @@
 # include <string>
 # include <exception>
 # include <fstream>
+# include <cstdlib>
+# include <ctime>
 
 # include "Form.hpp"
 
