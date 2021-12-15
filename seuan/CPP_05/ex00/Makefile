@@ -1,25 +1,36 @@
-TARGET			= Exception
+CC = clang++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS			= 	main.cpp \
-					Bureaucrat.cpp 
+RM = rm -rf
 
-OBJS			= $(SRCS:.cpp=.o)
+NAME = a.out
 
-CLA				= clang++
-RM				= rm -f
-CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
+SRC =	main.cpp\
+		Bureaucrat.cpp
 
-all:			$(TARGET)
+SRC_DIR = ./src/
+SRCS = $(addprefix $(SRC_DIR),$(SRC))
 
-$(TARGET):		$(OBJS)
-				$(CLA) $(CLAFLAGS) $(OBJS) -o $(TARGET) 
+OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = ./obj/
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
+
+all : $(NAME)
+
+$(NAME) : $(OBJS)
+		$(CC) $(CPPFLAGS) $^ \
+		-o $@
+
+$(OBJ_DIR)%.o : $(SRC_DIR)/%.cpp
+		@mkdir -p $(OBJ_DIR)
+		$(CC) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-				$(RM) $(OBJS)
+		$(RM) $(OBJ_DIR)
 
-fclean:			clean
-				$(RM) $(TARGET)
+fclean: clean
+		$(RM) $(NAME)
 
-re:				fclean $(TARGET)
+re : fclean all
 
-.PHONY:			all clean fclean re
+.PHONY : all clean fclean re

@@ -13,12 +13,12 @@ class PresidentialPardonForm : public Form
 {
 	public:
 		PresidentialPardonForm();
+        PresidentialPardonForm(Bureaucrat const & executor);
         PresidentialPardonForm(std::string name, int gradeSign, int gradeExecute);
         ~PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm& pform);
         PresidentialPardonForm &operator = (const PresidentialPardonForm& pform);
-	private:
-
+        void execute(Bureaucrat const & executor) const;
 };
 
 #endif

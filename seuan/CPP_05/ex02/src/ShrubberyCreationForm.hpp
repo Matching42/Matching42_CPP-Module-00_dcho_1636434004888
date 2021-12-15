@@ -1,7 +1,3 @@
-// (Required grades: sign 145, exec 137). Action: Create
-// a file called <target>_shrubbery, and write ASCII trees inside it, in the current
-// directory.
-
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
@@ -16,11 +12,8 @@ class ShrubberyCreationForm : public Form
         ShrubberyCreationForm(Bureaucrat const & executor);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm& sform);
-        ShrubberyCreationForm &operator = (const ShrubberyCreationForm& sform);
+        ShrubberyCreationForm& operator = (const ShrubberyCreationForm& sform);
         void execute(Bureaucrat const & executor) const;
-        void beSigned(Bureaucrat const & executor);
-        
-	private:
 };
 
 #endif
