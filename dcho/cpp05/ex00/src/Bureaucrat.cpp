@@ -106,10 +106,6 @@ int Bureaucrat::isValidGrade(int grade)
 	return 1;
 }
 
-const char* Bureaucrat::Exception::what() const throw() {
-	return ("Exception");
-}
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("GradeTooHighException");

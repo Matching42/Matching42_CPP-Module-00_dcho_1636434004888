@@ -20,18 +20,12 @@ class Bureaucrat
 		void decrementGrade();
 		int isValidGrade(int grade);
 
-
-		class Exception : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what(void) const throw();
 		};
-		class GradeTooHighException : public Bureaucrat::Exception
-		{
-			public:
-				const char* what(void) const throw();
-		};
-		class GradeTooLowException : public Bureaucrat::Exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char* what(void) const throw();
