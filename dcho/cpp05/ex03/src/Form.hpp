@@ -12,8 +12,8 @@ class Form
 		Form(std::string name, int gradeSign, int gradeExecute);
 		virtual ~Form();
 		Form(const Form& form);
-		Form &operator = (const Form& form);
 
+		Form &operator = (const Form& form);
 		std::string getName() const;
 		int getGradeSign() const;
 		int getGradeExecute() const;
@@ -22,8 +22,9 @@ class Form
 		void setGradeSign(int gradeSign);
 		void setGradeExecute(int gradeExecute);
 		void setIsSigned(bool isSigned);
+		
 
-		void isValidGrades(int gradeSign, int gradeExecute);
+		int isValidGrades(int gradeSign, int gradeExecute);
 		virtual void beSigned(Bureaucrat& bur);
 		// Define pure virtual method
 		virtual void execute(Bureaucrat const & executor) const = 0;

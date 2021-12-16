@@ -7,9 +7,6 @@
 
 # include "Form.hpp"
 
-# define ERRSIGN -1
-# define ERREXECUTE -2
-
 class Form;
 
 class Bureaucrat
@@ -25,7 +22,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		int isValidGrade(int grade);
+		void isValidGrade(int grade);
 		void signForm(Form& form);
 
 		class GradeTooHighException : public std::exception
@@ -40,7 +37,7 @@ class Bureaucrat
 		};
 
 	private:
-		std::string _name;
+		const std::string _name;
 		int _grade;
 };
 

@@ -4,23 +4,20 @@
 
 int main ()
 {
-	Bureaucrat bur("James", 1);
-	Bureaucrat bur2;
+	try
+	{
+		Bureaucrat bur("James", 2);
+		std::cout <<  bur << std::endl;
+		bur.incrementGrade(); // 1
+		std::cout << bur << std::endl;
+		// bur.incrementGrade(); // 0, error
+		// std::cout << bur << std::endl;
 
-	std::cout << std::endl;
-
-	std::cout <<  bur << std::endl;
-
-	std::cout << std::endl;
-
-	// bur2.incrementGrade();
-	// bur2.decrementGrade();
-
-	// // GradeTooLowException
-	// bur2.decrementGrade();
-
-	// // GradeTooHighException
-	// // bur.incrementGrade();
-	// std::cout << std::endl;
+		Bureaucrat bur2("dcho", 151);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }
