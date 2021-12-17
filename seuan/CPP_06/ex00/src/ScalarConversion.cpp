@@ -9,7 +9,7 @@ ScalarConversion::ScalarConversion(std::string var)
 {
     _Var = var;
     _IsNaN = false;
-    if (_Var.compare("nan") == 0)
+    if (isnan(atof(_Var.c_str())) == 1)
         _IsNaN = true;
 }
 
@@ -51,18 +51,34 @@ void ScalarConversion::toChar() const
 
 void ScalarConversion::toInt() const
 {
+    double tmp = atof(_Var.c_str());
     std::cout << "int: ";
-    std::cout << std::endl;
+    if (tmp < MIN_INT || tmp > MAX_INT || _IsNaN == true)
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << static_cast<int>(tmp) << std::endl;
 }
 
 void ScalarConversion::toFloat() const
 {
+    double tmp = atof(_Var.c_str());
     std::cout << "float: ";
-    std::cout << std::endl;
+    if (tmp < -MAX_FLOAT || tmp > MAX_FLOAT)
+        std::cout << "impossible" << std::endl;
+    else if (_IsNaN == true)
+        std::cout << "nanf" << std::endl;
+    else
+        std::cout << static_cast<float>(tmp) << std::endl;
 }
 
 void ScalarConversion::toDouble() const
 {
+    double tmp = atof(_Var.c_str());
     std::cout << "double: ";
-    std::cout << std::endl;
+    if (tmp < -MAX_DOUBLE || tmp > MAX_DOUBLE)
+        std::cout << "impossible" << std::endl;
+    else if (_IsNaN == true)
+        std::cout << "nan" << std::endl;
+    else
+        std::cout << static_cast<double>(tmp) << std::endl;
 }

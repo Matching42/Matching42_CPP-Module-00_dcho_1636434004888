@@ -33,6 +33,25 @@ int main(int ac, char **av)
         sc.toInt();
         sc.toFloat();
         sc.toDouble();
+
+        // std::cout << std::endl;
+
+        // std::cout << "float 타입의 최대 값:  " << MAX_FLOAT << std::endl;
+
+        // std::cout << "double 타입의 최대 값:  " << MAX_DOUBLE << std::endl;
+
+
+        // std::cout << "int 타입의 최대 값:  " << MAX_INT << std::endl;
+
+        // std::cout << std::endl;
+
+
+        // std::cout << "float 타입의 최소 값:  " << MIN_FLOAT << std::endl;
+
+        // std::cout << "double 타입의 최소 값:  " << MIN_DOUBLE << std::endl;
+
+        // std::cout << "int 타입의 최소 값:  " << MIN_INT << std::endl;
+
     }
     else
     {
