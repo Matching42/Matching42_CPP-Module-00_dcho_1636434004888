@@ -22,8 +22,9 @@ int main ()
 	// rform
 	try
 	{
-		Bureaucrat dcho("dcho", 4);
+		Bureaucrat dcho("dcho", 1);
 		RobotomyRequestForm rform("rform");
+
 		dcho.signForm(rform);
 		dcho.executeForm(rform);
 	}
@@ -37,6 +38,7 @@ int main ()
 	{
 		Bureaucrat dcho("dcho", 4);
 		PresidentialPardonForm pform("pform");
+
 		dcho.signForm(pform);
 		dcho.executeForm(pform);
 	}

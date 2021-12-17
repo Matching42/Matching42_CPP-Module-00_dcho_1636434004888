@@ -1,40 +1,34 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
 {
-	if (isValidGrade(grade))
-	{
-		_name = name;
-		_grade = grade;
-		std::cout << _name << ": " << _grade << " constructor called." << std::endl;
-	}
+	std::cout << "<" <<  _name << "> constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(std::string name, int grade)
+	: _name(name), _grade(grade)
 {
-	_name = "Default";
-	_grade = 150;
-	std::cout << _name << ": " << _grade << " constructor called." << std::endl;
+	isValidGrade(grade);
+	std::cout << "<" <<  _name << "> constructor called." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << _name << " destructor called." << std::endl;
+	std::cout << "<" <<  _name << "> destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
+	: _name(bur._name), _grade(bur._grade)
 {
-	std::cout << _name << " copy constructor called." << std::endl;
 	*this = bur;
+	std::cout << "<" <<  _name << "> copy constructor called." << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat &bur)
 {
 	if (this == &bur)
 		return (*this);
-	_name = bur._name;
-	_grade = bur._grade;
 	return (*this);
 }
 
@@ -58,50 +52,26 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-	try
-	{
-		if (_grade <= 1)
-			throw (Bureaucrat::GradeTooHighException());
-		else
-			_grade--;
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (_grade <= 1)
+		throw (Bureaucrat::GradeTooHighException());
+	else
+		_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	try
-	{
-		if (_grade >= 150)
-			throw (Bureaucrat::GradeTooLowException());
-		else
-			_grade++;
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (_grade >= 150)
+		throw (Bureaucrat::GradeTooLowException());
+	else
+		_grade++;
 }
 
-int Bureaucrat::isValidGrade(int grade)
+void Bureaucrat::isValidGrade(int grade)
 {
-	try
-	{
-		if (grade > 150)
-			throw (Bureaucrat::GradeTooLowException());
-		else if (grade < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		else
-			return 1;
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return 0;
-	}
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
 }
 
 void Bureaucrat::signForm(Form& form)

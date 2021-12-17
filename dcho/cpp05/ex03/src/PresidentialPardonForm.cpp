@@ -1,19 +1,18 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-	: Form("Shrubbery", P_SIGN, P_EXEC)
+	: Form("PresidentialPardon", P_SIGN, P_EXEC), _target("defaultTarget")
 	{}
 
-// PresidentialPardonForm::PresidentialPardonForm(Bureaucrat const & executor)
-// 	: Form("Shrubbery", P_SIGN, P_EXEC)
-// {
-// 	(void)executor;
-// }
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+	: Form("PresidentialPardon", P_SIGN, P_EXEC), _target(target)
+	{}
 
 PresidentialPardonForm::~PresidentialPardonForm()
 	{}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& pform)
+	: Form("PresidentialPardon", P_SIGN, P_EXEC), _target(pform._target)
 {
 	*this = pform;
 }
@@ -22,13 +21,8 @@ PresidentialPardonForm& PresidentialPardonForm::operator = (const PresidentialPa
 {
 	if (this == &pform)
 		return (*this);
-	setName(pform.getName());
-	setGradeSign(pform.getGradeSign());
-	setGradeExecute(pform.getGradeExecute());
-	setIsSigned(pform.getIsSigned());
 	return (*this);
 }
-
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
@@ -37,5 +31,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	if (executor.getGrade() >= getGradeExecute())
 		throw (Form::ExecuteException());
 
-	std::cout << executor.getName() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

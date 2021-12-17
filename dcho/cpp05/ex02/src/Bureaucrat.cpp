@@ -11,6 +11,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 {
 	isValidGrade(grade);
 	std::cout << "<" <<  _name << "> constructor called." << std::endl;
+
 }
 
 Bureaucrat::~Bureaucrat()
