@@ -28,6 +28,7 @@ int main ()
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+
 	// 2. besigned, signform
 	try
 	{
@@ -41,8 +42,6 @@ int main ()
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-
 
 	return 0;
 }

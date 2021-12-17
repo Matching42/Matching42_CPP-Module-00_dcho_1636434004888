@@ -18,10 +18,6 @@ class Form
 		int getGradeSign() const;
 		int getGradeExecute() const;
 		bool getIsSigned() const;
-		void setName(std::string name);
-		void setGradeSign(int gradeSign);
-		void setGradeExecute(int gradeExecute);
-		void setIsSigned(bool isSigned);
 
 		void isValidGrades(int gradeSign, int gradeExecute);
 		virtual void beSigned(Bureaucrat& bur);
@@ -49,9 +45,9 @@ class Form
 				const char* what(void) const throw();
 		};
 	private:
-		std::string _name;
-		int _gradeSign;
-		int _gradeExecute;
+		const std::string _name;
+		const int _gradeSign;
+		const int _gradeExecute;
 		bool _isSigned;
 };
 

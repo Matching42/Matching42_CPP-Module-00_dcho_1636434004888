@@ -52,26 +52,6 @@ int Form::getGradeExecute() const { return _gradeExecute; }
 
 bool Form::getIsSigned() const { return _isSigned; }
 
-void Form::setName(std::string name)
-{
-	_name = name;
-}
-
-void Form::setGradeSign(int gradeSign)
-{
-	_gradeSign = gradeSign;
-}
-
-void Form::setGradeExecute(int gradeExecute)
-{
-	_gradeExecute = gradeExecute;
-}
-
-void Form::setIsSigned(bool isSigned)
-{
-	_isSigned = isSigned;
-}
-
 void Form::beSigned(Bureaucrat& bur)
 {
 	if (bur.getGrade() >= _gradeSign)
