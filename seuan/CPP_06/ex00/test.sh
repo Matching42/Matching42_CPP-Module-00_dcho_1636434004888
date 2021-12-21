@@ -5,7 +5,7 @@ RE=re
 FCLEAN=fclean
 
 arr=("42" "42.42" "0" "42.0f" "nan" "-nan" "nanf"  "-nanf" "inf" "-inf" "inff" "-inff" 
-        "128" "2147483648" "-2147483649")
+        "128" "2147483648" "-2147483649" "a" "A" "{")
 
 # SCRIPT
 # RUN MAKE RE
