@@ -6,10 +6,10 @@ int main ()
 	{
 		Intern someRandomIntern;
 		Form* rrf;
-		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		// rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 		// rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		// rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-		// rrf = someRandomIntern.makeForm("invalid form", "Bender");
+		rrf = someRandomIntern.makeForm("invalid form", "Bender");
 		delete rrf;
 		rrf = NULL;
 	}
@@ -17,6 +17,6 @@ int main ()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	system("leaks a.out");
+	// system("leaks a.out");
 	return 0;
 }
