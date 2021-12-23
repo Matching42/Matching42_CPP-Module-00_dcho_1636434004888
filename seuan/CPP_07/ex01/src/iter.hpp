@@ -1,11 +1,11 @@
 #ifndef ITER_HPP
 # define ITER_HPP
 
-# include <Array>
+# include <array>
 # include <iostream>
 # include <string>
 
-template <class T> void iter(T* &arr, unsigned int len, void (*f)(T&))
+template <class T> void iter(T* arr, unsigned int len, void (*f)(T&))
 {
     for (unsigned int i = 0; i < len; i++)
         (*f)(arr[i]);
