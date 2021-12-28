@@ -5,6 +5,7 @@
 # include <iostream>
 # include <string>
 
+// 함수 포인터의 변수가 const 형식인 경우 고려.
 template <class T> void iter(T* arr, unsigned int len, void (*f)(T&))
 {
     for (unsigned int i = 0; i < len; i++)
