@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:27:39 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/10 16:35:21 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/13 15:46:10 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,6 @@ ClapTrap::~ClapTrap(void) {
     std::cout << "ClapTrap deleted" << std::endl;
 }
 
-void ClapTrap::setHitpoints(int input) {
-    Hitpoints = input;
-}
-
-void ClapTrap::setEnergyPoints(int input) {
-    EnergyPoints = input;
-}
-
-void ClapTrap::setAttackDamage(int input) {
-    AttackDamage = input;
-}
-
 void ClapTrap::attack(std::string const & target) {
     std::cout << "ClapTrap " << Name \
     << " attack " << target << \
@@ -51,9 +39,19 @@ void ClapTrap::attack(std::string const & target) {
 }
         
 void ClapTrap::takeDamage(unsigned int amount) {
-    ;
+    if (Hitpoints - amount <= 0) {
+        std::cout << Name << " is dead" << std::endl;
+        this->~ClapTrap();
+    }
+    else {
+        Hitpoints -= amount;
+        std::cout << Name << " taked damage" << std::endl;
+    }
 }
         
 void ClapTrap::beRepaired(unsigned int amount) {
-    ;
+    if (Hitpoints + amount > 10)
+        Hitpoints = 10;
+    else
+        Hitpoints += amount;
 }

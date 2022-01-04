@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:38:21 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/25 09:57:55 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/12 13:36:50 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
             getline(readFile, str); // 개행을 제외한 문자열만 str에 입력된다.
             str += '\n';
             index = -1;
+            // while 조건 index로 하면 더 효율적일듯
             while (str.find(before, index + 1) != std::string::npos) {
                 index = str.find(before, index + 1);
                 str.erase(index, before.length());

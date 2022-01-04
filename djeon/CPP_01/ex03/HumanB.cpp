@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeon <djeon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:37:21 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/21 16:37:22 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/12 14:53:59 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ HumanB::HumanB(void) {
 }
 
 HumanB::HumanB(std::string str) {
-    name = str;
+    name = str; // weapon도 null로 초기화하는게 좋을듯
 }
 
 HumanB::~HumanB(void) {

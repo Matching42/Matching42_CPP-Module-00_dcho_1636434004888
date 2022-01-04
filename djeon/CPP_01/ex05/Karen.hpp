@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:38:38 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/25 09:58:30 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/12 12:40:10 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include <iostream>
+
+// cpp struct == cpp class (public, private 차이)
 
 class Karen {
     class Mapping {

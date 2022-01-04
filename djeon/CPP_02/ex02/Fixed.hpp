@@ -6,15 +6,15 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:42:01 by djeon             #+#    #+#             */
-/*   Updated: 2021/11/30 17:50:29 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/04 17:29:31 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
-#include <cmath>
+# include <iostream>
+# include <cmath>
 
 class Fixed {
     public:

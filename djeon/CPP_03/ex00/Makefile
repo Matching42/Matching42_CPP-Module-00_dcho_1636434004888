@@ -6,12 +6,12 @@
 #    By: djeon <djeon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 02:06:29 by djeon             #+#    #+#              #
-#    Updated: 2021/12/10 14:49:28 by djeon            ###   ########.fr        #
+#    Updated: 2021/12/12 14:57:25 by djeon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = a.out
 SRC = main.cpp ClapTrap.cpp
 OBJECTS = $(SRC:.cpp=.o)
@@ -19,7 +19,7 @@ OBJECTS = $(SRC:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
 
 clean :
 	rm -f $(OBJECTS)

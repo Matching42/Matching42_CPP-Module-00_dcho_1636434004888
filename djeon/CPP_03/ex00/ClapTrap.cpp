@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:27:39 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/10 14:51:36 by djeon            ###   ########.fr       */
+/*   Updated: 2021/12/13 15:49:08 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(void) {
     Hitpoints = 10;
     EnergyPoints = 10;
     AttackDamage = 0;
-    std::cout << "non-name created" << std::endl;
+    std::cout << "ClapTrap non-name created" << std::endl;
 }
         
 ClapTrap::ClapTrap(std::string Name) {
@@ -24,11 +24,11 @@ ClapTrap::ClapTrap(std::string Name) {
     EnergyPoints = 10;
     AttackDamage = 0;
     this->Name = Name;
-    std::cout << "name created" << std::endl;
+    std::cout << "ClapTrap name created" << std::endl;
 }
         
 ClapTrap::~ClapTrap(void) {
-    std::cout << "deleted" << std::endl;
+    std::cout << "ClapTrap " << Name << " deleted" << std::endl;
 }
 
 void ClapTrap::attack(std::string const & target) {
@@ -39,9 +39,19 @@ void ClapTrap::attack(std::string const & target) {
 }
         
 void ClapTrap::takeDamage(unsigned int amount) {
-    ;
+    if (Hitpoints - amount <= 0) {
+        std::cout << Name << " is dead" << std::endl;
+        this->~ClapTrap();
+    }
+    else {
+        Hitpoints -= amount;
+        std::cout << Name << " taked damage (current hp : " << Hitpoints << ")" << std::endl;
+    }
 }
         
 void ClapTrap::beRepaired(unsigned int amount) {
-    ;
+    if (Hitpoints + amount > 10)
+        Hitpoints = 10;
+    else
+        Hitpoints += amount;
 }
