@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:08:49 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/14 14:08:18 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/05 17:57:08 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class FragTrap : public ClapTrap {
         void highFivesGuys(void);
 
         FragTrap(void);
+        FragTrap(const FragTrap &rhs);
+        FragTrap& operator = (const FragTrap &rhs);
         FragTrap(std::string Name);
         ~FragTrap(void);
 

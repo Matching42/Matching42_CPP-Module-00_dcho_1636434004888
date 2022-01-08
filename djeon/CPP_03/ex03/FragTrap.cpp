@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:08:43 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/13 15:21:25 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/08 18:48:04 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 FragTrap::FragTrap(void) : ClapTrap() {
     Hitpoints = 100;
+    MaxHitpoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
     std::cout << "FragTrap non-name created" << std::endl;
@@ -21,9 +22,19 @@ FragTrap::FragTrap(void) : ClapTrap() {
 
 FragTrap::FragTrap(std::string Name) : ClapTrap(Name) {
     Hitpoints = 100;
+    MaxHitpoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
     std::cout << "FragTrap name created" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &rhs) : ClapTrap(rhs) {
+    std::cout << "copy FragTrap created" << std::endl;
+}
+
+FragTrap& FragTrap::operator = (const FragTrap &rhs) {
+    ClapTrap::operator=(rhs);
+    return *this;
 }
 
 FragTrap::~FragTrap(void) {
@@ -38,5 +49,5 @@ void FragTrap::attack(std::string const & target) {
 }
 
 void FragTrap::highFivesGuys(void) {
-    std::cout << "positive high fives request" << std::endl;
+    std::cout << Name << " : positive high fives request" << std::endl;
 }

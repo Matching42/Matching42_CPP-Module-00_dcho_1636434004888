@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 14:53:26 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/14 14:08:20 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/05 17:56:01 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class ScavTrap : public ClapTrap {
         void guardGate(void);
 
         ScavTrap(void);
+        ScavTrap(const ScavTrap &rhs);
+        ScavTrap& operator = (const ScavTrap &rhs);
         ScavTrap(std::string Name);
         ~ScavTrap(void);
 

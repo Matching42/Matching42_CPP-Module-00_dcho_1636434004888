@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 14:53:17 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/13 15:21:53 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/08 21:13:41 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap() {
     Hitpoints = 100;
+    MaxHitpoints = 100;
     EnergyPoints = 50;
     AttackDamage = 20;
     std::cout << "ScavTrap non-name created" << std::endl;
@@ -21,9 +22,19 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name) {
     Hitpoints = 100;
+    MaxHitpoints = 100;
     EnergyPoints = 50;
     AttackDamage = 20;
     std::cout << "ScavTrap name created" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &rhs) : ClapTrap(rhs) {
+    std::cout << "copy ScavTrap created" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator = (const ScavTrap &rhs) {
+    ClapTrap::operator=(rhs);
+    return *this;
 }
 
 ScavTrap::~ScavTrap(void) {
@@ -38,5 +49,5 @@ void ScavTrap::attack(std::string const & target) {
 }
 
 void ScavTrap::guardGate(void) {
-    std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
+    std::cout << "ScavTrap " << Name << " have enterred in Gate keeper mode" << std::endl;
 }

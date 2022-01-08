@@ -6,7 +6,7 @@
 /*   By: djeon <djeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:27:48 by djeon             #+#    #+#             */
-/*   Updated: 2021/12/14 14:08:34 by djeon            ###   ########.fr       */
+/*   Updated: 2022/01/07 14:17:12 by djeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class ClapTrap {
         void beRepaired(unsigned int amount);
         
         ClapTrap(void);
+        ClapTrap(const ClapTrap &rhs);
+        ClapTrap& operator = (const ClapTrap &rhs);
         ClapTrap(std::string Name);
         ~ClapTrap(void);
 
